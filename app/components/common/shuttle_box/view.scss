@@ -1,0 +1,52 @@
+.shuttle {
+  padding: 30px 20px 20px;
+  width: 580px;
+  margin: auto;
+  background: #f9f9f9;
+  .shuttle-sides {
+    width: 240px;
+    height: 224px;
+    padding: 5px;
+    background: #fff;
+    display: inline-block; 
+    border: 1px solid #ccd0d6;
+  }
+  .shuttle-right {
+    margin-left: 55px; 
+  }
+  .shuttle-selectbox {
+    height: 188px;
+    overflow: auto;
+  }
+  .select-search {
+    position: relative;
+  }
+  .shuttle-select-search {
+    width: 228px;
+    height: 24px;
+    padding-right: 23px;
+  }
+  .icon-sousuo {
+    position: absolute;
+    right: 4px;
+    top: 3px;
+    color: #999999;
+  }
+  .shuttle-button {
+    position: absolute;
+    width: 40px;
+    height: inherit;
+    margin: 1px;
+    margin-top: 70px;
+    display: inline-block; 
+    margin-left: 5px;
+
+    div {
+      width: 40px;
+      height: 31px;
+      margin-bottom: 5px;
+      /*margin: 5px;
+      padding: 5px;*/
+    }
+  }
+}

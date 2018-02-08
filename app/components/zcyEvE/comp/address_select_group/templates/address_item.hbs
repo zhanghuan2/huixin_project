@@ -1,0 +1,5 @@
+{{#each data}}
+  <li data-value="{{id}}" {{#if ../defaultValue}}{{#equals ../defaultValue id}}class="active"{{/equals}}{{else}}{{#if @first}}class="active"{{/if}}{{/if}}>
+    <a href='javascript:;' title="{{name}}">{{name}}</a>
+  </li>
+{{/each}}

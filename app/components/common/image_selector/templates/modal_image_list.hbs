@@ -1,0 +1,14 @@
+{{#each data}}
+  <li id="{{id}}" type="{{type}}" data-folder-id="{{folderId}}" class="{{#mod @index 5}}last{{/mod}}">
+    <div class="modal-image">
+      {{#equals type 1}}
+        <i class="iconfont icon-wenjianjia"></i>
+        <button class="btn btn-mini btn-trash js-folder-delete" data-id="{{id}}">&times;</button>
+      {{else}}
+        <img src="{{url}}" alt="" />
+        <button class="btn btn-mini btn-trash js-image-delete" data-id="{{id}}">&times;</button>
+      {{/equals}}
+      <span class="item-name" title="{{name}}">{{name}}</span>
+    </div>
+  </li>
+{{/each}}

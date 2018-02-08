@@ -1,0 +1,35 @@
+<div class="info-block changePwdDiv">
+  <div class="row info-line">
+    <div class="col-2 info-title">
+      <label for="oldPwd"><span class="asterisk">*&nbsp;</span>旧密码：</label>
+    </div>
+    <div class="col-10 info-content">
+      <input type="password" id="oldPwd" class="input-medium" placeholder="请输入" required/>
+    </div>
+  </div>
+  <div class="row info-line">
+    <div class="col-2 info-title">
+      <label for="newPwd"><span class="asterisk">*&nbsp;</span>新密码：</label>
+    </div>
+    <div class="col-10 info-content">
+      <input type="password" id="newPwd" class="input-medium" placeholder="请输入" checker-compare="password" checker-pattern="(?![0-9]+$)[\x21-\x7e]{8,16}" checker-text="密码为8至16位, 且不能为全数字。" required/>
+    </div>
+  </div>
+  <div class="row info-line">
+    <div class="col-2 info-title">
+      <label for="newPwdAgain"><span class="asterisk">*&nbsp;</span>再次输入新密码：</label>
+    </div>
+    <div class="col-10 info-content">
+      <input type="password" id="newPwdAgain" class="input-medium" placeholder="请输入" checker-compare="password" required/>
+      <span class="status-disable" name="errorMsg"></span>
+    </div>
+  </div>
+  <div class="row info-line">
+    <div class="col-2 info-title">
+      &nbsp;
+    </div>
+    <div class="col-10 info-content">
+      <button id="pwdModifyConfirm" class="btn btn-minor">修改</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,234 @@
+{{#component "tab spu-tab js-comp"}}
+  <div class="hide">{{json}}</div>
+<ul class="tab-navs clearfix"  data-item="{{itemId}}" style="border-left: 1px solid #ccc;padding-left: 2px;">
+  <li class="active" data-role="nav"><a href="javascript:void(0);">商品详情</a></li>
+  <li data-role="nav"><a href="javascript:void(0);">规格参数</a></li>
+  <li data-role="nav"><a href="javascript:void(0);">配件</a></li>
+  <li data-role="nav"><a href="javascript:void(0);">供货商</a></li>
+  <li data-role="nav"><a href="javascript:void(0);">成交记录</a></li>
+</ul>
+<div class="tab-contents">
+  <!-- 商品详情 -->
+  <div data-role="content" class="tab-content">
+    <div class="spu-params">
+      <ul class="spu-info clearfix">
+        {{#if _DATA_.item.brandName}}
+          <li class="attribute-li pull-left">品牌: &nbsp;&nbsp;{{_DATA_.item.brandName}}</li>
+        {{/if}}
+        {{#if _DATA_.item.specification}}
+          <li class="attribute-li pull-left">型号: &nbsp;&nbsp;{{_DATA_.item.specification}}</li>
+        {{/if}}
+        {{#if _DATA_.item.itemCode}}
+          <li class="attribute-li pull-left">商品代码: &nbsp;&nbsp;{{_DATA_.item.itemCode}}</li>
+        {{/if}}
+        {{#each _DATA_.groupedOtherAttributes}}
+        {{#equals group "普通信息"}}
+            {{#each otherAttributes}}
+              <li class="attribute-li pull-left">{{attrKey}}: &nbsp;&nbsp;{{attrVal}}{{unit}}</li>
+            {{/each}}
+          {{/equals}}
+        {{/each}}
+      </ul>
+      <p class="text-right more-par js-more-params"><a style="color: #82BA2A;">更多参数&nbsp;&gt;&gt;</a></p>
+    </div>
+    {{{_DATA_.itemDetail.detail}}}
+  </div>
+  <!-- 规格参数 -->
+  <div data-role="content" class="tab-content hide">
+    <div class="package-list">
+      {{#each _DATA_.groupedOtherAttributes}}
+        {{#equals group "SKU"}}
+        {{else}}
+          <table class="attribute-tab">
+            {{#of group "SPU,USER_DEFINED"}}
+            {{else}}
+              <thead>
+                <th colspan="2" class="attribute-title">
+                  {{group}}
+                </th>
+              </thead>
+            {{/of}}
+            <tbody>
+              {{#each otherAttributes}}
+              <tr>
+                <td class="main-parameter">
+                  {{#of attrKey "birthday,weight,origin"}}
+                    {{#equals attrKey "birthday"}}上市时间{{/equals}}
+                    {{#equals attrKey "weight"}}重量{{/equals}}
+                    {{#equals attrKey "origin"}}产地{{/equals}}
+                  {{else}}
+                    {{attrKey}}
+                  {{/of}}
+                </td>
+                <td class="parameter-espercial">{{attrVal}}{{unit}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{/equals}}
+      {{/each}}
+    </div>
+  </div>
+  <!-- 配件 -->
+  <div data-role="content" class="tab-content hide">
+    <div class="package-list">
+      <table class="table" id="mTable">
+        <thead>
+          <tr>
+            <th width="17%">配件名称</th>
+            <th width="14%">配件类别</th>
+            <!--<th width="12%">商品类目</th>-->
+            <th width="15%">品牌</th>
+            <th width="12%">型号</th>
+            <th width="12%">市场价(元)</th>
+            <th width="10%">协议单价(元)</th>
+            <th width="10%">优惠率(%)</th>
+            <th width="10%">累计成交量</th>
+          </tr>
+        </thead>
+          <tbody>
+          {{#each _DATA1_}}
+              <!-- 循环tr -->
+              {{#each parts}}
+                  <tr>
+                      <td style="position: relative">
+                          {{#equals partIsStandard 1}}
+                              <div class="outbox">
+                                  <div class=" inbox" >
+
+                                  </div>
+                                  <div class="biao-content">
+                                      标
+                                  </div>
+                              </div>
+                          {{/equals}}
+                          <div class="name-content">
+                              {{partName}}{{#equals partIsStandard  1}}(x{{partStandardCount}}){{/equals}}
+                          </div>
+                      </td>
+                      {{!--<td>
+                        {{#equals type 'N'}}<span class="label label-blue">新增</span>{{/equals}}
+                        {{#equals type 'R'}}<span class="label label-blue">替换</span>{{/equals}}
+                      </td>--}}
+                      <td style="word-break: break-all">{{categoryName}}</td>
+                      <td>{{brand}}</td>
+                      <td>{{mode}}</td>
+                      <td>{{marketPrice}}</td>
+                      <td>{{agreementPrice}}</td>
+                      <td>{{discountRate}}</td>
+                      <td>{{saleAmount}}</td>{{!--{{saleQuantity}}--}}
+                  </tr>
+              {{/each}}
+          {{/each}}
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- 供货商 -->
+  <div data-role="content" class="tab-content hide" style="overflow: visible">
+    <div class="package-list">
+      <!-- 品牌联系人 -->
+      <div>
+        <h3>品牌联系人</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="25%">供应商名称</th>
+              <th width="25%">联系人</th>
+              <th width="25%">联系电话</th>
+              <th width="25%">公司地址</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{_DATA3_.supplier.supplierName}}</td>
+              <td>{{_DATA3_.supplier.contactName}}</td>
+              <td>{{_DATA3_.supplier.contactPhone}}</td>
+              <td>{{_DATA3_.supplier.fullAddress}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 供货商信息 -->
+      <div class="mGysss">
+        <div class="mr-top-10">
+          <h3 class="items-list fl">供货商信息</h3>
+          <div class="items-list fr">
+            供货范围：
+              <div class="inline-block address" id="address">
+
+              </div>
+            <button class="btn btn-minor mr-sm gysSearch" style="background-color: #82BA2A;vertical-align: middle;padding: 7px 16px;">搜索</button>
+            <button class="btn btn-ghost mr-sm gysReset" style="vertical-align: middle;padding: 7px 16px;">全部</button>
+          </div>
+        </div>
+        <table class="table L_supplierList">
+          <thead>
+            <tr>
+              <th width="20%">供货商名称</th>
+              <th width="10%">联系人</th>
+              <th width="20%">联系电话</th>
+              <th width="20%">公司地址</th>
+              <th width="20%">供货范围</th>
+              <th width="10%">供货范围</th>
+            </tr>
+          </thead>
+          <tbody class="">
+            {{#each _DATA3_.dealer}}
+            <tr class="appId" data-supcode="{{supRangeCode}}">
+              <td>{{supplierName}}</td>
+              <td>{{contactName}}</td>
+              <td>{{contactPhone}}</td>
+              <td>{{fullAddress}}</td>
+              <td>{{supRange}}</td>
+              <td>666</td>
+            </tr>
+          {{/each}}
+          </tbody>
+          <tfoot>
+
+              <tr>
+                <td colspan="2">
+                 </td>
+                 <td colspan="3" class="text-right">
+                    <div class="pagination L_supplierListnum" data-size="20"
+                        data-total="{{_DATA_3.data.total}}">
+                    </div>
+                  </td>
+              </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- 成交记录 -->
+  <div data-role="content" class="tab-content hide js-dealrecord" style="overflow: visible">
+      <!-- 供货商信息 -->
+      <div class="package-list">
+          <table class="table table-fixed">
+          <thead>
+            <tr>
+              <th width="20%">采购单位</th>
+              <th width="20%">成交单价(元)</th>
+              <th width="10%">成交数量</th>
+              <th width="10%">成交总价(元)</th>
+              <th width="20%">成交供货商</th>
+              <th width="20%">成交日期</th>
+            </tr>
+          </thead>
+          <tbody class="js-dealrecord-list">
+          </tbody>
+          <tfoot>
+              <tr>
+                <td colspan="3">
+                 </td>
+                 <td colspan="3" class="text-right js-pagination">
+                  </td>
+              </tr>
+          </tfoot>
+        </table>
+      </div>
+  </div>
+
+</div>
+{{/component}}

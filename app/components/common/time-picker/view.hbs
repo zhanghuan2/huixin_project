@@ -1,0 +1,12 @@
+{{#component "time-picker"}}
+<input class="time-input {{class}}" {{#if required}}{{required}}{{/if}} readonly {{#equals check "true"}}checker-text="false" icon="false"{{/equals}} name="{{name}}" value="{{value}}" type="text" placeholder="{{placeholder}}">
+<div class="time-input-div">
+  <div class="hour div-block">
+    <ul></ul>
+  </div><div class="min div-block">
+    <ul></ul>
+  </div><div class="sec div-block">
+    <ul></ul>
+  </div>
+</div>
+{{/component}}

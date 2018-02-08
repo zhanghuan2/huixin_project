@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>政采云-{{#block "title"}}{{/block}}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- pokeball 基础字体文件，需要修改请联系 端点王凯凯 -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1453788396_1901004.css">
+    <!-- 基础字体文件，需要修改请联系 端点王凯凯 -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1453727622_3574405.css">
+    <!-- zcy 后台字体文件 -->
+    
+    <!-- zcy 前台的iconfont，请修改这个链接 -->
+    <link rel="stylesheet" href="https://sitecdn.zcy.gov.cn/zcy-font/font_121827_nzo2utbb7s1exw29.css">
+    <!-- v1重构字体 -->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_3ea33322qi1kyb9.css">
+    <link rel="stylesheet" href="/assets/styles/vendor.css">
+    <link rel="stylesheet" href="/assets/styles/app.css">
+    
+    <link rel="shortcut icon" href="https://sitecdn.zcy.gov.cn/zcy/desktop/media/img/favicon.ico"  type="image/x-icon">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">您正在使用<strong>过时</strong>的浏览器. 请 <a href="https://browsehappy.com/">升级</a> 您的浏览器以提升您的体验</p>
+    <![endif]-->
+    <!--[if lt IE 8]><script src="https://cdn.staticfile.org/json2/20121008/json2.js"></script><![endif]-->
+    {{#if <%= tips %>}}
+      <div class="top-warning">This is a test site, please do not pay for orders.</div>
+    {{/if}}
+    <div class="root-container">
+    {{{block "body"}}}
+    </div>
+
+    <script src="/assets/scripts/vendor.js"></script>
+    <script src="/assets/scripts/templates.js"></script>
+    <script src="/assets/scripts/upload.js"></script>
+    <script src="/assets/scripts/app.js"></script>
+
+    <script>require("app")()</script>
+  </body>
+</html>

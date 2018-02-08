@@ -1,0 +1,22 @@
+#edit-address-modal {
+    .modal-body {
+        table {
+            tr {
+                border-style: none;
+                td {
+                    text-align: left;
+                    &.address .selectric.init .label{
+                        color: #666666;
+                    }
+                    textarea[name = 'details'] {
+                        width: 500px;
+                    }
+                    span[name = 'textarea-counter'] {
+                        display: inline-block !important;
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,176 @@
+{{#equals user.activate false}}
+    <div class="row">
+      <div class="col-12">
+        <div class="panel border-panel warnDiv">
+          <span class="warnSpan">请完善个人信息，手机或邮箱必须经过验证</span>
+        </div>
+      </div>
+    </div>
+{{/equals}}
+<div class="row">
+  <div class="col-7">
+    <div class="panel border-panel panelHeight" id="userInfoDiv">
+      <div class="panel-header">
+        <span>用户信息</span>
+
+        <div class="head-btn">
+          <button type="button" class="btn btn-minor" id="basicInfoCancel">取消</button>
+          <button type="button" class="btn btn-minor" id="basicInfoSaveBtn">保存</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="info-block">
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="name"><span class="asterisk">*&nbsp;</span>姓名：</label></div>
+            <div class="col-9 info-content">
+              <input type="text" class="input-medium" id="name" value="{{user.displayName}}" placeholder="请输入"
+                     required/>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label><span class="asterisk">*&nbsp;</span>性别：</label></div>
+            <div class="col-3 info-content" id="genderDiv">
+              <input type="radio" name="gender" id="male" value="0" checked><label for="male">男</label>
+              <input type="radio" name="gender" id="female" value="1"
+                     {{#equals profile.gender 1}}checked{{/equals}}><label for="female">女</label>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="idType"><span class="asterisk">*&nbsp;</span>证件类型：</label></div>
+            <div class="col-3 info-content">
+              <select id="idType" class="input-medium">
+                <option value="0" {{#unless profile.idType}}selected{{/unless}}>身份证</option>
+              </select>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="idNo"><span class="asterisk">*&nbsp;</span>证件号码：</label></div>
+            <div class="col-9 info-content">
+              <input type="text" id="idNo" class="input-medium" value="{{profile.idNo}}" placeholder="请输入"
+                     checker-pattern="^[a-zA-Z0-9]{18}$" checker-text="证件长度为18位" required/>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="mobile"><span class="asterisk">*&nbsp;</span>手机：</label></div>
+            <div class="col-9 info-content">
+              {{#if user.mobile}}
+                <label id="mobile" style="width: 190px;">{{user.mobile}}</label>
+              {{else}}
+                <input type="text" id="mobile" class="input-medium" placeholder="请输入" checker-type="mobile" checker-text="false" required/>
+              {{/if}}
+              {{#equals user.mobileVerified true}}
+                <span class="status-able">已验证</span>
+              {{else}}
+                <button type="button" class="btn btn-minor checkButton" id="verifyMobileBtn">验证</button>
+              {{/equals}}
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="phone">电话：</label></div>
+            <div class="col-9 info-content">
+              <input type="text" class="input-medium" id="phone" value="{{employee.phone}}" placeholder="请输入"
+                     checker-pattern="^((0\d{2,3})-)(\d{7,8})$" checker-text="电话号码格式不正确，格式参考：0571-88888888"/>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="faxNo">传真：</label></div>
+            <div class="col-9 info-content">
+              <input type="text" class="input-medium" id="faxNo" value="{{employee.faxNo}}" placeholder="请输入"
+                     checker-pattern="^((0\d{2,3})-)(\d{7,8})$" checker-text="传真号码格式不正确，格式参考：0571-88888888"/>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="email"><span class="asterisk">*&nbsp;</span>电子邮箱：</label></div>
+            <div class="col-9 info-content">
+              {{#if user.email}}
+                <label id="email" style="width: 190px">{{user.email}}</label>
+              {{else}}
+                <input type="text" id="email" class="input-medium" placeholder="请输入" checker-type="email" checker-text="false" required/>
+              {{/if}}
+              {{#equals user.emailVerified true}}
+                <span class="status-able">已验证</span>
+              {{else}}
+                <button type="button" class="btn btn-minor checkButton" id="verifyEmailBtn">验证</button>
+              {{/equals}}
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="address"><span class="asterisk">*&nbsp;</span>地址：</label></div>
+            <div class="col-9 info-content">
+              <input type="text" class="input-medium" id="address" value="{{profile.address}}" placeholder="请输入"
+                     required/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-5">
+    <div class="panel border-panel panelHeight">
+      <div class="panel-header">
+        帐号信息
+      </div>
+      <div class="panel-body">
+        <div class="info-block">
+          <div class="row info-line">
+            <div class="col-4 info-title">员工编号：</div>
+            <div class="col-5 info-content">
+              <span>{{employee.empNo}}</span>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-4 info-title">帐号：</div>
+            <div class="col-5 info-content" id="accountDiv">
+              <span id="accountSpan">{{#if user.account}}{{user.account}}{{else}}-{{/if}}</span>
+            </div>
+            <div class="col-3 info-content">
+              {{#equals user.accountSet false}}
+                <button class="btn btn-minor" id="accountConfig">配置</button>{{/equals}}
+            </div>
+          </div>
+          {{#ifCond category "==" "02" }}
+            <div class="row info-line">
+              <div class="col-4 info-title">所属机构：</div>
+              <div class="col-5 info-content">
+                <span>{{employee.orgName}}</span>
+              </div>
+            </div>
+          {{else ifCond category "==" "88" }}
+          {{else}}
+            <div class="row info-line">
+              <div class="col-4 info-title">所属机构：</div>
+              <div class="col-5 info-content">
+                <span>{{employee.orgName}}</span>
+              </div>
+            </div>
+            <div class="row info-line">
+              <div class="col-4 info-title">所属部门：</div>
+              <div class="col-5 info-content">
+                <span>{{employee.depName}}</span>
+              </div>
+            </div>
+          {{/ifCond}}
+          <div class="row info-line">
+            <div class="col-4 info-title">所属岗位：</div>
+            <div class="col-8 info-content text-overflow" title="{{#each posts}} {{name}}{{/each}}">
+              {{#each posts}} {{name}}{{/each}}
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-4 info-title">入职时间：</div>
+            <div class="col-5 info-content">
+              <span>{{formatDate employee.hiredAt "day"}}</span>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-4 info-title">帐号状态：</div>
+            <div class="col-5 info-content">
+              {{#equals user.status 0}}<span class="status-disable">未激活</span>{{/equals}}
+              {{#equals user.status 1}}<span class="status-able">正常</span>{{/equals}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

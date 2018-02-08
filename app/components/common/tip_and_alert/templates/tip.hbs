@@ -1,0 +1,11 @@
+<div class="tip tip-{{type}} {{direct}}" style="{{#if left}}left:{{left}}px;{{/if}}{{#if top}}top:{{top}}px;{{/if}}{{#if width}}width:{{width}}px;{{/if}}{{#if zIndex}}z-index: {{zIndex}}{{/if}}">
+  {{#equals icon "empty"}}
+  {{else}}
+    <div class="tip-icon">
+      <i class="icon-{{type}}16"></i>
+    </div>
+  {{/equals}}
+  <div class="tip-message">
+    <p>{{message}}</p>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+{{#component "medical-index-page js-comp"}}
+<div class="hide">{{json this}}</div>
+<div class="index-page">
+  {{#inject "zcyEvE/comp/header"}}
+    {
+      "id": "-99",
+      "_categoryVisible": true
+    }
+  {{/inject}}
+
+  {{!-- banner-wrapper --}}
+  <div class="banner-wrapper">
+    <div class="layout clearfix">
+      {{!-- carousel --}}
+      <div class="carousel carousel-rounded" data-ride="carousel" data-type="switchable" data-colors="#D3DDE6,#0A376F">
+        <!-- Wrapper for slides -->
+        <div class="carousel-contents">
+          <div data-role="content" class="carousel-content">
+            <img src="/assets/images/other-images/banner.png">
+          </div>
+          <div data-role="content" class="carousel-content hide">
+            <img src="/assets/images/other-images/login_bg.jpg">
+          </div>
+        </div>
+        <div class="carousel-navs">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-role="nav" class="active">
+              <span class="icon-zcy icon-yuandian"></span>
+              <span class="icon-zcy icon-yuandiankuang"></span>
+            </li>
+            <li data-role="nav">
+              <span class="icon-zcy icon-yuandian"></span>
+              <span class="icon-zcy icon-yuandiankuang"></span>
+            </li>
+          </ol>
+        </div>
+      </div>
+      
+      {{!-- info --}}
+      <div class="info">
+        <div class="avatar">
+          <i class="icon-zcy icon-logo"></i>
+        </div>  
+        <div class="welcome-text">Hi，{{_USER_.displayName}} 上午好！</div>
+        <a class="user-center" href="{{_ENV_HREF_.middle}}/guide">用户中心</a>
+        <ul class="advantage-list clearfix">
+          <li>
+            <i class="icon-zcy icon-zhengpinbaozhang1"></i>
+            <p>正品保障</p>
+          </li>
+          <li>
+            <i class="icon-zcy icon-jiageyouhui1"></i>
+            <p>价格优惠</p>
+          </li>
+          <li>
+            <i class="icon-zcy icon-shuangxiangxinyong1"></i>
+            <p>双向信用</p>
+          </li>
+          <li>
+            <i class="icon-zcy icon-shouhouwuyou1"></i>
+            <p>售后无忧</p>
+          </li>
+        </ul>
+        <div class="hotline">
+          服务热线：<strong>400-881-7190</strong>
+        </div>
+        <div class="actions clearfix">
+          <a href="https://cschat.cloud.alipay.com/pcportal.htm?tntInstId=KMQNW3CN&scene=SCE00000041"><i class="icon-zcy icon-zaixiankefu"></i>在线客服</a>
+          <a href="https://help.zcy.gov.cn/"><i class="icon-zcy icon-wentizixun"></i>帮助中心</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+    {{!-- 批量采购 --}}
+    {{#inject "zcyEvE/comp/floor"}}
+      {
+        "_type": "batch",
+        "_name": "批量采购",
+        "_desc": "医疗商品单价 7-100 万元",
+        "tradeType": 2
+      }
+    {{/inject}}
+
+    {{!-- 竞价采购 --}}
+    {{!-- {{#inject "zcyEvE/comp/floor"}}
+      {
+        "_type": "bidding",
+        "_name": "竞价采购",
+        "_desc": "医疗商品单价 7 万以下",
+        "tradeType": 1
+      }
+    {{/inject}} --}}
+  </div>
+  
+  {{!-- 商品采购路径 --}}
+  <div class="purchase-way">
+    <div class="layout">
+      <div class="purchase-way-hd">
+        商品采购路径
+      </div>
+      <ol class="purchase-way-bd clearfix">
+        <li><i class="icon-zcy icon-icon-test"></i><span>选品</span></li>
+        <li><i class="icon-zcy icon-icon-test1"></i><span>加入购物车</span></li>
+        <li><i class="icon-zcy icon-icon-test5"></i><span>填写采购计划、<br>送货地址等信息</span></li>
+        <li><i class="icon-zcy icon-icon-test2"></i><span>提交竞价单</span></li>
+        <li><i class="icon-zcy icon-icon-test4"></i><span>批量集采或竞价</span></li>
+        <li><i class="icon-zcy icon-icon-test3"></i><span>竞价单列表中确认结果</span></li>
+      </ol>
+    </div>
+    
+  </div>
+
+</div>
+
+{{/component}}

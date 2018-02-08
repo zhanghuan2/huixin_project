@@ -1,0 +1,23 @@
+{{#component "mailSetNewPaswd forget-password  js-comp"}}
+  <div class="panel pl pr pt mb0 pb0">
+    <div class="row" id="forgetPasswordProcessBar"></div>
+  </div>
+  <div class="panel center mt0">
+    <div class="control-group ">
+      <label for="password"><span class="required">*</span>设置密码</label>
+      <input id="password" type="password" placeholder="" checker-compare="password" checker-pattern="^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]{8,16}$" checker-text="密码为8至16位, 且不能为全数字。" required/>
+      <div class="password-rank">
+        <span name="weak" class="badge">弱</span>
+        <span name="normal" class="badge">中</span>
+        <span name="strong" class="badge">强</span>
+      </div>
+    </div>
+    <div class="control-group ">
+      <label for="password_confirm"><span class="required">*</span>确认密码</label>
+      <input id="password_confirm" type="password" placeholder="" checker-compare="password" checker-text="" max-length="32" min-length="8" required/>
+    </div>
+    <p class="needknow">
+      <button id="commit" class="btn btn-primary btn-large" name="commit" disabled>提交</button>
+    </p>
+  </div>
+{{/component}}

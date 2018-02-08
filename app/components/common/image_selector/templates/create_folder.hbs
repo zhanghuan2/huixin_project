@@ -1,0 +1,21 @@
+<div class="modal">
+  <div class="modal-header">
+    <h2>新建文件夹</h2>
+  </div>
+  <form class="form form-aligned create-folder-form">
+    <div class="modal-dialog">
+      <div class="control-group">
+        <label><span class="required">*</span>名称:</label>
+        <input name="folder" type="text" placeholder="请输入名称" value="{{data.folder}}" required>
+        <input name="pid" type="hidden" value="{{data.pid}}">
+        <input name="pathType" type="hidden" value="{{data.pathType}}">
+        <span class="note"><i>&times;</i> 必填 不得为空</span>
+        <span class="note-error-empty"><i>&times;</i> 必填 不得为空</span>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-medium btn-success" type="submit">确定</button>
+      <button class="btn btn-medium close" type="button">取消</button>
+    </div>
+  </form>
+</div>

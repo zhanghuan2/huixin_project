@@ -1,0 +1,14 @@
+@import "mixins";
+%clearfix {
+  @include clearfix();
+}
+
+%text-overflow{
+  @include text-overflow();
+}
+
+%border{
+  @include border();
+}
+
+

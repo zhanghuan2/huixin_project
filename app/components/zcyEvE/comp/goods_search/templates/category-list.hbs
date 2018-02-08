@@ -1,0 +1,70 @@
+<div class="hide">{{json this}}</div>
+<div class="current-location-dark clearfix" data-user="{{_USER_}}">
+    <span class="current-location-span">
+        {{#each this.breadCrumbs}}
+            <a class="font-12 js-bread-category-selector" href="javascript:void(0)" data-id="{{key}}">{{name}}</a>&nbsp;&nbsp;<i class="font-12 icon-zcy icon-nextstep"></i>&nbsp;
+        {{/each}}
+        {{#each this.chosens}}
+            {{#of type "1,2"}}
+            <a class="bread-selector font-12 {{#equals type 1}}js-bread-brand-selector{{else}}js-bread-catalog-selector{{/equals}}" 
+            href="javascript:void(0)" data-id="{{key}}" data-selector="{{key}}:{{name}}">
+            {{#equals type 2}}{{key}}：{{name}}{{else}}{{#equals type 1}}品牌：{{name}}{{else}}{{name}}{{/equals}}{{/equals}}
+                <i class="font-12 icon-zcy icon-close"></i>
+            </a>
+            {{/of}}
+        {{/each}}
+        {{!-- <div class="hide">{{this.chosenPPlans}}</div>
+        {{#if this.chosenPPlans}}
+            {{#each this.chosenPPlans}}
+                <a href="javascript:void(0)" class="bread-selector font-12 js-bread-plan-selector" data-id="{{purchaseplanDOCNO}}">{{purchaseplanDOCNO}}
+                    <i class="font-12 icon-zcy icon-close"></i>
+                </a>
+            {{/each}}
+        {{/if}} --}}
+    </span>
+</div>
+
+{{#if this.brandAggs}}
+    <div class="nav-group category-nav">
+            <dl>
+                <dt class="title" title="品牌">品牌：</dt>
+                <div class="brand-list">
+                    <div class="list-more">
+                        {{#each this.brandAggs}}
+                            <dd class="brand-dd dd-cancel">
+                                <label for="{{id}}" class="hide">
+                                    <input type="checkbox" value="{{id}}" id="{{id}}" class="brand-select input-checkbox">
+                                    <span title="{{name}}" class="name">{{name}}</span>
+                                </label>
+                                <a data-id="{{id}}" class="js-brand-selector selector" href="javascript:void(0);">{{name}}</a>
+                                <span>({{count}})</span>
+                            </dd>
+                        {{/each}}
+                    </div>
+                    <div class="brand-buttons hide">
+                        <button class="btn  btn-small btn-primary js-brand-confirm" type="button">确定</button>&nbsp;
+                        <button class="btn btn-info btn-small brand-cancel-btn js-brand-cancel" type="button">取消</button>
+                    </div>
+                </div>
+                {{#gt (size this.brandAggs) 5}}
+                    <dd class="more-dd js-more-dd">
+                        <a href="javascript:void(0);" class="js-more">更多</a>
+                        <i class="font-12 icon-zcy icon-xiangxiazhedie"></i>
+                    </dd>
+                {{/gt}}
+                {{#gt (size this.brandAggs) 1}}
+                    <dd class=" btn btn-info btn-small pull-right more-options">
+                        <a href="javascript:void(0);" class="js-elects">多选</a>
+                        <i class="font-12 icon-zcy"></i>
+                    </dd>
+                {{/gt}}
+                
+            </dl>
+    </div>
+{{else}}
+    <div class="nav-group category-nav">
+        <dl>
+            <dt class="title" title="品牌">品牌：</dt>   
+        </dl>
+    </div>
+{{/if}}

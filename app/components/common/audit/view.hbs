@@ -1,0 +1,71 @@
+{{#component "zcy-audit js-comp "}}
+<div class="panel panel-toggle">
+  <div class="panel-header">
+    <span class="panel-title">{{title}}</span>
+  </div>
+  <div class="panel-body zcy-form form form-aligned">
+    <div class="control-group">
+      <label for="">
+        {{#if pass.label}}{{pass.label}}{{else}}审核结果：{{/if}}
+      </label>
+      <input type="radio" name="{{#if pass.key}}{{pass.key}}{{else}}pass{{/if}}" class="input-radio" value="1" checked>同意
+      <input type="radio" name="{{#if pass.key}}{{pass.key}}{{else}}pass{{/if}}" class="input-radio" value="0">不同意
+    </div>
+    {{#if nextStep}}
+    <div class="control-group no-label">
+      {{#if nextStep.org}}
+        <span class="next-org-label step-label" data-prev-label="{{nextStep.org.prevLabel}}" data-next-label="{{nextStep.org.nextLabel}}">{{nextStep.org.nextLabel}}</span>
+        <select name="{{nextStep.org.key}}" id="next-org" class="next-org" data-attr="{{nextStep.org.attr}}" data-query-url="{{nextStep.org.url}}" data-query-params="{{nextStep.org.params}}">
+          <option value="" disabled>请选择</option>
+        </select>
+      {{/if}}
+      {{#if nextStep.user}}
+        <span class="next-user-label step-label">{{nextStep.user.label}}</span>
+        <select name="{{nextStep.user.key}}" id="next-user" class="next-user" data-query-url="{{nextStep.user.url}}">
+          <option value="" disabled>请选择</option>
+        </select>
+      {{/if}}
+      <div class="clearfix"></div>
+      <span class="text-danger hide" id="auditAlter">
+        <i class="icon-zcy icon-alertfill login-error-icon"></i>
+        <span >没有配置下一环节的执行人，请联系管理员</span>
+      </span>
+    </div>
+    {{/if}}
+    <div class="control-group">
+      <label for="" class="pull-left">{{#if opinion.label}}{{opinion.label}}{{else}}情况说明：{{/if}}</label>
+      <div class="zcy-audit-comments pull-left">
+        <div class="zcy-audit-opinion">
+          <select name="opinion" id="zcy-opinion" data-query-url="{{opinion.queryUrl}}" data-add-url="{{opinion.addUrl}}" data-del-url="{{opinion.delUrl}}">
+            <option value="" disabled>常用意见</option>
+          </select>
+          <span id="add-opinion" class="pull-right" >存为常用意见</span>
+        </div>
+        <div class="zcy-audit-input">
+          <textarea  name="{{#if opinion.key}}{{opinion.key}}{{else}}comment{{/if}}" rows="5" {{#if opinion.required}}required{{/if}}></textarea>
+          {{#if opinion.max}}
+            <div class="textarea-counter">
+              <span class="counter" data-max="{{opinion.max}}"></span>/{{opinion.max}}
+            </div>
+          {{/if}}
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="control-group no-label">
+      {{#if attachment}}
+      <div class="pull-left zcy-audit-attachment" data-name="{{attachment.key}}"></div>
+      {{/if}}
+      {{#if urgent}}
+        <div class="audit-urgent pull-left">
+          <input type="checkbox" value="1" class="zcy-audit-urgent" name="{{urgent.key}}">加急处理
+        </div>
+      {{/if}}
+      <div class="clearfix"></div>
+    </div>
+    <div class="control-group no-label">
+      <button type="button" class="btn btn-primary" id="zcy-submit">提交</button>
+    </div>
+  </div>
+</div>
+{{/component}}

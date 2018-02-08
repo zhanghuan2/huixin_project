@@ -1,0 +1,228 @@
+$loading-prefix-cls: 'wc-spin';
+$loading-background-color: #24344E;
+.medical-shoppingcart{
+  .page-info{
+    border: 1px solid #e7e9ea;
+    background: #F9F9F9;
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow: auto;
+    zoom: 1;
+    .col-2{
+      text-align: center;
+      padding-top: 22px;
+      h3{
+        font-size: 16px;
+      }
+      .icon-prompt{
+        font-size: 28px;
+      }
+    }
+    .col-10{
+      padding-left: 30px;
+      border-left: 1px dashed #C7C7C7;
+      color: #666;
+      >ul li{
+        padding: 4px 0;
+        list-style-type: disc;
+        width: 680px;
+      }
+    }
+  }
+
+  .shoppingcart-table{
+    td{
+      padding: 10px;
+      vertical-align: top;
+    }
+    [name=item-checkbox]{
+      margin-left: 10px;
+    }
+    .shoppingcart-goods-tr1{
+      &:not(:first-child){
+        margin-top: 10px;
+      }
+      b{
+        color: #333;
+        margin-left: 6px;
+      }
+    }
+    .shoppingcart-goods-img{
+      width: 82px;
+      height: 82px;
+      margin-right: 10px;
+    }
+    .shoppingcart-goods-tr2{
+      border: 1px solid #e7e9ea;
+      &:hover{
+        background-color: rgba(242, 242, 242, 0.2);
+      }
+      &.checked{
+        background-color: #f2f8e9;
+      }
+      .shoppingcart-goods-span{
+        width: 320px;
+        display: inline-block;
+        vertical-align: top;
+        color: #333;
+      }
+      .input-amount a{
+        background-color: #fff;
+      }
+      .price{
+        color: #000;
+        font-weight: bold;
+      }
+      .item-subtotal{
+        color: #FF5342;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      [name=deleteBtn]{
+        color: #333;
+      }
+    }
+    
+  }
+  input[type=checkbox]:hover:after{
+    color: #8CC238;
+    border: 1px solid #AAB4C8;
+  }
+  input[type=checkbox]:after{
+    color: #8CC238;
+    border: 1px solid #AAB4C8;
+  }
+  .btn-shoppingCart{
+    width: 136px;
+    height: 60px;
+    background-color: #8CC238;
+    border-color: #dddddd;
+    color: #fff;
+    font-size: 14px;
+    &:disabled{
+      background-color: #dddddd;
+      border-color: #dddddd;
+      color: #fff;
+    }
+  }
+  .shoppingCart-none{
+    .text-center{
+      margin: 200px 0;
+      .icon-gouwuche1{
+        font-size: 80px;
+        margin-bottom: 35px;
+        color: #ccc;
+      }
+      p{
+        font-size: 20px;
+        color: #24344E;
+        margin: 20px 0 ;
+      }
+      .btn-shoppingCart-none{
+        width: 106px;
+        line-height: 26px;
+        background-color: #8CC238;
+        border-color: #dddddd;
+        color: #fff;
+        font-size: 18px;
+      }
+
+    }
+  }
+  .icon-delete-warning{
+    font-size: 18px;
+    color: #ffbb00;
+    vertical-align: initial;
+    margin-right: 10px;
+  }
+  .delete-close{
+    color: #777;
+    border: 1px solid #CCCCCC;
+  }
+  .delete-submit{
+    background: #8CC238;
+    border: 1px solid #8CC238;
+  }
+  .ruleError{
+    color: red;
+    font-size: 13px;
+  }
+  .js-search-list {
+    min-height: 500px;
+
+    .#{$loading-prefix-cls} {
+      position: fixed;
+      top: 45%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      margin: -60px 0 0 -60px;
+      border-radius: 16px;
+      background-color: $loading-background-color;
+      opacity: .45;
+      z-index: 999;
+
+      &-circle-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 64px;
+        height: 64px;
+        margin: -32px 0 0 -32px;
+        border-radius: 50%;
+        border: 4px solid #f7f7f7;
+      }
+
+      &-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 64px;
+        height: 64px;
+        margin: -32px 0 0 -32px;
+        border-radius: 50%;
+        clip: rect(0 64px 64px 32px);
+        background-image: linear-gradient(#f7f7f7, rgb(183, 193, 208));
+        animation: wc-spin .8s linear infinite;
+      }
+
+      &-circle-mask {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: $loading-background-color;
+      }
+
+      &-icon i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 32px;
+        height: 32px;
+        margin: -10px 0 0 -13px;
+        color: #fff;
+        font-size: 26px;
+      }
+    }
+
+    @keyframes wc-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  input[type=checkbox]:checked:after, input[type=checkbox][checked="checked"]:after {
+    border: 0!important;
+  }
+}
+.shopcart-dialog{
+  .modal-dialog-message{
+    min-width: 172px!important;
+  }
+}

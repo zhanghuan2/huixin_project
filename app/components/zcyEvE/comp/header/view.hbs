@@ -1,0 +1,73 @@
+{{#component "zcy-header js-comp"}}
+
+<div class="hide J_data">{{json this}}</div>
+<div class="hide J_categoryVisible">{{json _categoryVisible}}</div>
+
+  <div class="layout">
+    <div class="zcy-header-main clearfix">
+      <div class="logo">
+        <a href="{{_ENV_HREF_.front}}">
+          <img class="site-logo" src="/assets/images/other-images/site-logo.png" alt="">
+        </a>
+        <span class="v-line"></span>
+        <a href="/medical/index">
+          <i class="sub-logo icon-zcy icon-yiliaoguan"></i>
+        </a>
+        <span class="province">浙江</span>
+      </div>
+      {{#if _USER_}}
+      {{#ifCond _USER_.currentCategory '==' '01'}}
+      <a href="/medical/shoppingcart" class="cart">
+          <span class="quantity J_shopping-cart-amount">0</span>
+        <i class="icon-zcy icon-gouwuche1"></i>购物车
+      </a>
+      {{/ifCond}}
+      {{/if}}
+      <div class="search">
+        <i class="icon-zcy icon-sousuo-"></i>
+        <input class="J_search-input" placeholder="输入您要搜索的商品" type="text" placeholder="输入您要搜索的商品">
+        <a class="search-btn" href="javascript:;">搜索</a>
+      </div>
+    </div>
+
+    <div class="zcy-header-nav">
+      <div class="clearfix">
+        <a class="category-trigger" href="javascript:;">
+          <i class="icon-zcy icon-quanbufenlei"></i>全部商品分类
+        </a>
+        <a class="nav-item {{#if _categoryVisible}}active{{/if}}" href="/medical/index">首页</a>
+      </div>
+      <ul class="category {{#ifCond _categoryVisible '==' false}}hide{{/ifCond}}">
+        {{#each _DATA_}}
+        <li class="category-item">
+          <a href="/medical/search?categoryId={{current.id}}" class="category-name"><i class="icon-zcy {{current.logo}}"></i>{{current.name}}</a>
+          <div class="sub-category">
+            <div class="sub-category-line">
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="sub-category-main">
+              <div class="sub-category-list clearfix">
+                {{#each children}}
+                <a href="/medical/search?categoryId={{current.id}}">{{current.name}}</a>
+                {{/each}}
+              </div>
+              <div class="sub-category-mask"></div>
+            </div>
+          </div>
+        </li>
+        {{/each}}
+
+      </ul>
+    </div>
+  </div>
+
+  
+  
+{{/component}}

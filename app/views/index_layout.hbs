@@ -1,0 +1,27 @@
+{{#partial "title"}}{{{block "realTitle"}}}{{/partial}}
+{{#partial "body"}}
+
+{{#if todo}}
+<div class="main-right" style="margin:0; padding:0;">
+{{else}}
+<div class="main-top">
+  {{inject "common/header"}}
+</div>
+<div class="main-left">
+  {{inject "common/sidebar"}}
+</div>
+<div class="main-right">
+{{/if}}
+  {{{block "realBody"}}}
+</div>
+<!-- <div class="main-foot">
+  <div class="session"></div>
+  <div class="copyright">
+    <span>Copyright © 2015 版权所有</span>
+  </div>
+</div> -->
+  <div class="notify-container"></div>
+  <div class="zcy-message"></div>
+{{!-- <div style="clear:both"></div> --}}
+{{/partial}}
+{{> layout}}

@@ -1,0 +1,264 @@
+@import "pokeball/theme";
+@import "compass/css3/inline-block";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/css3/images";
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+
+.item-detail {
+  margin-bottom: 25px;
+  min-height: 475px;
+
+  .warning {
+    border: 1px solid $color-danger !important;
+  }
+
+  .left {
+    width: 370px;
+    float: left;
+    _margin-right: -3px;
+  }
+
+  .right {
+    margin-left: 370px;
+  }
+
+  .item-title {
+    padding-top: 20px;
+
+    h1 {
+      font-size: 18px;
+      line-height: 20px;
+      font-weight: 300;
+      margin: 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .control-group {
+    margin-top: 10px;
+    line-height: 25px;
+
+    .control-label {
+      @include inline-block(middle);
+      width: 60px;
+      vertical-align: middle;
+    }
+    .remark{
+      @include inline-block(middle);
+    }
+
+    .controls {
+      @include inline-block(middle);
+
+      .original-price {
+        text-decoration:line-through
+      }
+
+      .new-price {
+        b {
+          font-size: 24px;
+          margin-left: 5px;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .new-price-controls {
+      vertical-align: bottom;
+    }
+  }
+
+  .item-not-on {
+    margin-top: 20px;
+    border: 1px solid $color-border;
+    background-color: $color-background;
+    padding: 10px 20px 20px 20px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .item-skus, .item-attrs {
+    margin-top: 20px;
+    // background-color: $color-background;
+
+    .close-warning {
+      color: $color-danger;
+      float: right;
+      margin: -10px -15px 0 0;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    #choose {
+      list-style: none;
+
+      .control-group {
+
+        .sku-attr {
+          border: 1px solid $color-border;
+          @include inline-block(middle);
+          margin-right: 10px;
+          margin-bottom: 2px;
+          padding: 5px 15px;
+          color: $color-text;
+          line-height: 12px;
+
+          &.hasImage {
+            padding: 0;
+          }
+
+          &[disabled] {
+            cursor: not-allowed;
+            background-color: $color-background;
+          }
+        }
+
+        .sku-items-label {
+          float: left;
+          width: 75px;
+          height: 25px;
+          overflow: hidden;
+          text-align: left;
+          @include inline-block(middle);
+        }
+
+        .sku-items {
+          width: 410px;
+          @include inline-block(middle);
+
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+
+        .selected {
+          border: 1px solid $color-danger;
+        }
+      }
+    }
+
+    #choose-btns {
+      margin-top: 20px;
+
+      .hide {
+        display: none !important;
+      }
+    }
+  }
+
+  #item-price {
+    color: $color-text;
+    font-size: 12px;
+    text-decoration: line-through;
+  }
+
+  .image-manage {
+    margin-top: 20px;
+
+    .main-image {
+      width: 350px;
+      height: 350px;
+      border: 1px solid $color-border-dark;
+    }
+
+    .sharp {
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      width: 0;
+      height: 0;
+      margin-left: 22px;
+    }
+
+    .images {
+      margin: 0;
+      padding: 0;
+      margin-top: 10px;
+
+      li {
+        list-style: none;
+        width: 54px;
+        height: 54px;
+        padding-left: 14px;
+        padding-top: 8px;
+        float: left;
+        @include inline-block(middle);
+        text-align: center;
+
+        img {
+          width: 52px;
+          height: 52px;
+          border: none;
+          cursor: pointer;
+          display: block;
+        }
+
+        a {
+          font-size: 12px;
+        }
+      }
+
+      .selected {
+        img {
+          border: 1px solid $color-danger;
+        }
+
+        .sharp {
+          border-bottom: 5px solid $color-danger;
+        }
+      }
+    }
+  }
+}
+
+.activity-list {
+  font-size: 0;
+  height: 25px;
+  line-height: 25px;
+  position: relative;
+  zoom: 1;
+
+  ul {
+    font-size: 12px;
+    width: 220px;
+    height: 25px;
+    list-style-type: none;
+    overflow: hidden;
+    position: absolute;
+    background-color: #fff;
+    z-index: 9;
+    @include inline-block(middle);
+    @include box-shadow(rgba(0, 0, 0, .1) -1px 1px 2px);
+
+    li {
+      padding: 0 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .caret {
+    vertical-align: middle;
+    position: absolute;
+    left: 225px;
+    top: 10px;
+    @include transition(all .3s);
+  }
+
+  &.active {
+    ul {
+      height: auto;
+    }
+
+    .caret {
+      @include transform(rotate(180deg));
+    }
+  }
+}

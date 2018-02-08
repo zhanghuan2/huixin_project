@@ -1,0 +1,26 @@
+<tr data-address-id="{{data.id}}">
+    <td>
+        <input type="checkbox" name="selectAddress" {{#equals data.isSelected true}}checked{{/equals}}>
+    </td>
+    <td>{{data.fullAddress}}</td>
+    <td>{{data.receiverName}}</td>
+    <td>
+        {{#if data.mobile}}
+            {{data.mobile}}
+        {{else}}
+            -
+        {{/if}}
+    </td>
+    <td>
+        {{#if data.fullPhone}}
+            {{data.fullPhone}}
+        {{else}}
+            -
+        {{/if}}
+    </td>
+    <td data-type="quantity"></td>
+    <td data-type="remark"></td>
+    {{#if hasAction}}
+        <td data-type="action"></td>
+    {{/if}}
+</tr>

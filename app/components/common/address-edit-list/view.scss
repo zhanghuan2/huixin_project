@@ -1,0 +1,49 @@
+#address-edit-list {
+    table {
+        tr {
+            td[data-type = 'action'] {
+                a {
+                    margin-right: 10px;
+                }
+            }
+            td[data-type = 'quantity'] {
+                >div {
+                    >input {
+                        width: 60%;
+                    }
+                    >span[name = 'check-requirederr'] {
+                        @media (max-width: 1400px ) {
+                            display: block;
+                        }
+                    }
+                }
+            }
+            td[data-type = 'remark'] {
+                >div {
+                    >textarea {
+                        float: left;
+                        width: 75%;
+                    }
+                    >span[name = 'check-icon'] {
+                        display: none;
+                    }
+                    >span[name = 'textarea-counter'] {
+                        float: left;
+                        margin-top: 40px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+    div.address-list-placeholder {
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border: 1px solid #e7e9ea;
+        border-top: none;
+    }
+    div.expand-all {
+        padding-top: 20px;
+    }
+}

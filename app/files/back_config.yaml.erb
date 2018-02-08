@@ -1,0 +1,127 @@
+app: parana-admin
+
+services:
+  "getEnvHref":
+    type: SPRING
+    uri: "com.dtdream.vanyar.privilege.service.ResourcePrivilegeReadService:getEnvHref"
+  #"getEnvHref":
+  #  type: SPRING
+  #  uri: "cn.gov.zcy.user.service.ZcyResourcePrivilegeReadService:getEnvHref"
+  "queryBacklog":
+    type: SPRING
+    uri: "cn.gov.zcy.user.service.agent.BacklogAssortedServiceAgent:queryBacklog"
+  "queryMessage":
+    type: SPRING
+    uri: "cn.gov.zcy.user.service.agent.MessageCenterAssortedServiceAgent:queryMessage"
+  "getPortal":
+    type: SPRING
+    uri: "cn.gov.zcy.user.service.ZcyUserReadService:getUserBaseCategories"
+  "findSimpleAddr":
+    type: SPRING
+    uri: "cn.gov.zcy.address.service.ZcyAddressReadService:findSimpleAddr"
+  "findForView":
+    type: SPRING
+    uri: "io.terminus.parana.item.service.ItemReadService:findForView"
+  "getOrderItemPurchaserStat":
+    uri: "cn.gov.zcy.trade.service.stat.OrderItemPurchaserStatService:getOrderItemPurchaserStat"
+    type: SPRING
+  "getRoles":
+    type: SPRING
+    uri: "cn.gov.zcy.trade.service.PurchaseReadService:getRoles"
+  "getEvaluateItemStatistics":
+    type: SPRING
+    uri: "com.dtdream.vanyar.credit.service.CreditEvaluateService:getEvaluateItemStatistics"
+  "getCompareList":
+    type: SPRING
+    uri: "cn.gov.zcy.web.component.ZcyMainSearch:searchByBrandAndSpecif"
+  "queryGoodsDetailById":
+    uri: "cn.gov.zcy.agrsuppmng.external.api.service.ExternalGoodsHallReadService:queryGoodsDetailById"
+    type: SPRING
+  "getMoreItemEvaluateDetail":
+    type: SPRING
+    uri: "com.dtdream.vanyar.credit.service.CreditEvaluateService:getMoreItemEvaluateDetail"
+  "getGoodSupplier":
+    type: SPRING
+    uri: "cn.gov.zcy.agrsuppmng.external.api.service.ExternalGoodsHallReadService:loadSupplierInfo"
+  "getSpuItemComparativeInfo":
+    uri: "cn.gov.zcy.spu.service.ZcySpuReadService:getSpuItemComparativeInfo"
+    type: SPRING
+  "mainSearchWithAggs":
+    type: SPRING
+    uri: "io.terminus.parana.search.item.SupplierSearchReadService:searchWithAggs"
+  "findChildrenOf":
+    type: SPRING
+    uri: "io.terminus.parana.cache.FrontCategoryCacher:findByIds"
+  "getAppsByDim":
+    type: SPRING
+    uri: "cn.gov.zcy.application.service.ZcyApplicationReadService:checkHasApp"
+  "getUserShortCutList":
+    type: SPRING
+    uri: "cn.gov.zcy.trade.service.ZcyTradeReadService:getUserShortCutList"
+  "getPermanentCart":
+    type: SPRING
+    uri: "cn.gov.zcy.trade.service.ZcyTradeReadService:getPermanentCart"
+  "getAgreeMentCart":
+    type: SPRING
+    uri: "cn.gov.zcy.trade.service.ZcyTradeReadService:getAgreeMentCart"
+  "getVaccineCart":
+    type: SPRING
+    uri: "cn.gov.zcy.trade.service.ZcyTradeReadService:getVaccineCart"
+  "getElements":
+    type: SPRING
+    uri: "cn.gov.zcy.user.service.ZcyResourcePrivilegeReadService:getElements"
+  "getRecommendedSupplier":
+    type: SPRING
+    uri: "cn.gov.zcy.trade.service.IndexRecommendReadService:getRecommendedSupplier"
+  "getDistrictTreeWithPrivilegeInJson":
+    type: SPRING
+    uri: "com.dtdream.vanyar.district.service.DistrictAppService:getDistrictTreeWithPrivilegeInJson"
+  "itemPropertyCompare":
+    type: SPRING
+    uri: "cn.gov.zcy.item.service.ZcyItemReadService:itemPropertyCompare"
+
+  "loadFrontCategory":
+    type: SPRING
+    uri: "cn.gov.zcy.agrsuppmng.external.api.service.ExternalGoodsHallReadService:loadFrontCategoryTree"
+  "loadGoodIndex":
+    type: SPRING
+    uri: "cn.gov.zcy.health.hall.service.HallIndexService:loadGoodIndex"
+  "getDistrictTreeInJson":
+    type: SPRING
+    uri: "com.dtdream.vanyar.district.service.DistrictAppService:getDistrictTreeInJson"
+  "getMoreItemEvaluateDetail":
+    type: SPRING
+    uri: com.dtdream.vanyar.credit.service.CreditEvaluateService:getMoreItemEvaluateDetail
+  "queryAgreeDealerInfos":
+    uri: "cn.gov.zcy.agrsuppmng.external.api.service.ExternalGoodsHallReadService:queryAgreeDealerInfos"
+    type: SPRING
+
+  "findItemDetailInfoByItemId":
+    type: SPRING
+    uri: io.terminus.parana.item.service.ItemReadService:findItemDetailInfoByItemId
+  "findByAgrGoodsId":
+    uri: "cn.gov.zcy.agrsuppmng.external.api.service.ExternalPartService:findByAgrGoodsId"
+    type: SPRING
+  "queryGoosServerInfoByGoodsId":
+    uri: "cn.gov.zcy.agrsuppmng.external.api.service.ExternalGoodsHallReadService:queryServicesInfoByGoodsId"
+    type: SPRING
+  "queryCompareGoodsInfoListByGoodsId":
+    uri: "cn.gov.zcy.agrsuppmng.external.api.service.ExternalGoodsHallReadService:queryCompareGoodsInfoListByGoodsId"
+    type: SPRING
+  "childAddressOf":
+    type: SPRING
+    uri: "cn.gov.zcy.address.service.ZcyAddressReadService:childAddressOf"
+  "getElements":
+    type: SPRING
+    uri: "com.dtdream.vanyar.privilege.service.ResourcePrivilegeReadService:getElements"
+  getDistrictTreeJson:
+    type: SPRING
+    uri: cn.gov.zcy.user.service.agent.DistrictServiceAgent:getDistrictTreeJson
+  getAppsByDim:
+    type: SPRING
+    uri: cn.gov.zcy.application.service.ZcyApplicationReadService:checkHasApp
+
+
+
+
+

@@ -1,0 +1,14 @@
+{{#component "user-center js-comp"}}
+  <div class="tab" data-type="switchable" name="tab">
+    <ul class="tab-navs clearfix">
+      <li data-role='nav' value="basicInfo" id="basicInfo">基本信息</li>
+      <li data-role="nav" value="changePwd" id="changePwd">修改密码</li>
+      <li data-role="nav" value="changeMobile" id="changeMobile">修改手机</li>
+      <li data-role='nav' value='changeEmail' id="changeEmail">修改邮箱</li>
+    </ul>
+    <div class="mainTable pt-lg pr-lg pb-lg pl-lg">
+
+    </div>
+  </div>
+  <input type="hidden" id="category" value="{{_USER_.currentCategory}}"/>
+{{/component}}

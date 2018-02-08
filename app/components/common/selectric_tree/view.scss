@@ -1,0 +1,89 @@
+.selectric-tree {
+  border: 1px solid #ccd0d6;
+  background: white;
+  position: relative;
+  padding: 6px 5px;
+  border-radius: 0;
+
+  &-wrapper {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    &.selectric-tree-open {
+      z-index: 9999;
+      .selectric-tree-items {
+        display: block;
+        z-index: -1;
+        position: absolute;
+        top: 35px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        border: 1px solid #dfdfdf;
+        box-shadow: 0 0 10px -6px;
+      }
+    }
+  }
+
+  &-items {
+    display: none;
+
+    .jstree-container-ul {
+      .jstree-leaf {
+        a {
+          white-space: nowrap;
+          display: inline-block;
+          overflow: hidden;
+          width: 100%;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .label {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 5px;
+    line-height: 1.5em;
+    height: 1.5em;
+    color: #999;
+  }
+
+  .button {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 28px;
+    height: 30px;
+    color: #f7f7f7;
+    text-align: center;
+    font: 0/0 a;
+
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 0;
+      height: 0;
+      border: 4px solid transparent;
+      border-top-color: #24344e;
+      border-bottom: none;
+    }
+  }
+  .clear {
+    position: absolute;
+    right: 3px;
+    top: 10%;
+    font-size: 24px;
+  }
+}

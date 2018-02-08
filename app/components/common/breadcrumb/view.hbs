@@ -1,0 +1,18 @@
+{{#unless todo}}
+{{#component "breadcrumbs js-comp"}}
+  <ol class="breadcrumb mt0">
+    {{!-- <li class="badge">
+      {{badge}}
+    </li> --}}
+    {{#each breadcrumb}}
+    <li>
+      {{#ifCond url "==" "#"}}
+      <span>{{crumb}}</span>
+      {{else}}
+      <a href="{{url}}">{{crumb}}</a>
+      {{/ifCond}}
+    </li>
+    {{/each}}
+  </ol>
+{{/component}}
+{{/unless}}

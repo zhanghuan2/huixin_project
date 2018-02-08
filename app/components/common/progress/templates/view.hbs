@@ -1,0 +1,12 @@
+<ol class="zcy-progress__new">
+  {{#each this}}
+    <li class="zcy-step__{{status}}">
+        <div class="zcy-step-title">{{title}}</div>
+        <div class="zcy-step-icon">
+            <i class="icon-step__{{status}} icon-zcy"></i>
+            <div class="zcy-step-index__{{status}}">{{index}}</div>
+          </div>
+        <div class="zcy-step-des">{{des}}</div>
+    </li>
+  {{/each}}
+</ol>

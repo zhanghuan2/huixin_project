@@ -1,0 +1,38 @@
+.search-panel {
+  padding: 10px;
+  border: 1px solid #ccd0d6;
+  margin-bottom: 15px;
+  font-size: 12px;
+  color: #24344e;
+  table {
+    tr {
+      &:first-child {
+        td {
+          padding-top: 0px;
+        }
+      }
+      td {
+        color: #999999;
+        padding-top: 9px;
+        &.search-label {
+          text-align: right;
+          padding-left: 16px;
+          &:first-child {
+            padding-left: 0;
+          }
+        }
+        input[type="text"],
+        select {
+          width: 190px;
+          &.date-input {
+            width: 120px;
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAIAAACDRijCAAAACXBIWXMAAC4jAAAuIwF4pT92AAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAAz0lEQVR42mL8//8/AzUAQAAxMVAJAAQQikFv331Yt2k7kCQoiAkAAogR7jWg0oNHjuNRam9jKSwkgEsWIIAY/sPA2o3brt++/x8HAEoBFfzHDQACCMVrorgtxCMFAQABxILMwe81/AAggFiIDAWCIQgQQCgGAU25cesOhK2hpgIk0bh4AEAAsaDxr924jawTjYsHAAQQC2Yc4+HiAQABhG4QPCCC/DwxuXgAQAChGHTjzgM0DXAuUAq/QQABRLWUDRBAjNTK/QABRLXcDxBgAO9RkDaazGQgAAAAAElFTkSuQmCC");
+            background-repeat: no-repeat;
+            background-position: right center;
+          }
+        }
+        white-space: nowrap;
+      }
+    }
+  }
+}

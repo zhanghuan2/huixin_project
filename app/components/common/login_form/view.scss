@@ -1,0 +1,216 @@
+.login-form-block {
+  .login-block {
+    height: auto;
+    width: 374px;
+    float: right;
+    padding: 20px;
+    background-color: #FFFFFF;
+
+    .login-form {
+      margin: 0px;
+    }
+
+    .login-title {
+      border-bottom: 1px solid #DFDFDF;
+      padding: 0px 26px;
+      margin: 0px -20px;
+
+      label {
+        font-size: 1.8em;
+        border-bottom: 3px solid #1a67fe;
+        height: 100%;
+        padding: 10px 0px;
+      }
+    }
+
+    .input-group {
+      margin: 0;
+      padding: 0;
+      width: 334px;
+      height: 100%;
+      box-sizing: border-box;
+
+      .input {
+        width: 276px;
+        margin: 0 auto;
+        height: 100%;
+        border-radius: 0;
+        border: 1px solid #DFDFDF;
+        margin-bottom: 20px;
+        float: left;
+        border-left-width: 0px;
+        box-sizing: border-box;
+        /* modify for IE8 */
+        line-height: 30px; 
+      }
+
+      .input-icon {
+        width: 46px;
+        height: 46px;
+        float: left;
+        text-align: center;
+        margin: 0 auto;
+        font-size: 20px;
+        padding: 14px 0px;
+        border: 1px solid #DFDFDF;
+        border-right-width: 0px;
+        box-sizing: border-box;
+      }
+
+      .input-captcha {
+        width: 194px;
+        margin: 0 auto;
+        height: 100%;
+        border-radius: 0;
+        border: 1px solid #DFDFDF;
+        margin-bottom: 20px;
+        float: left;
+        border-left-width: 1px;
+        box-sizing: border-box;
+      }
+
+      .img-captcha {
+        width: 100px;
+        height: 46px;
+        line-height: 46px;
+        margin-left: 20px;
+      }
+
+      &:focus {
+        .input, .input-icon {
+          border-color: #1a67fe;
+        }
+      }
+    }
+
+    .input-row {
+      height: 46px;
+      margin: 10px auto;
+      vertical-align: middle;
+    }
+    
+    .error-row {
+      height: 38px;
+      margin: 8px 0 -2px;
+    }
+    
+    .remember-row {
+      height: 30px;
+      padding: 6px;
+    }
+    
+    .forget-items {
+      font-size: 14px;
+      position: relative;
+      margin: 10px 0 0;
+      a {
+        color: black;
+        &:first-child {
+          margin-right: 1em;
+        }
+      }
+      .popover {
+        left: 0 !important;
+        border: none;
+        .arrow {
+          left: 14% !important;
+          border-bottom-color: #EAF8FE;
+          &:after {
+            border-bottom-color: #EAF8FE;
+          }
+        }
+        &.bottom {
+         > .arrow {
+           top: -10px;
+         } 
+        }
+        .popover-content {
+          background-color: #EAF8FE;
+          padding: 2px 4px;
+          color: #1eb6f8;
+        }
+      }
+    }
+
+    .auto-login {
+      font-size: 14px;
+      color: black;
+    }
+
+    .auto-login-check {
+      height: 14px;
+      width: 14px;
+      padding: 0px;
+      vertical-align: middle;
+      border-radius: 0px;
+      border: 1px solid #DFDFDF;
+      margin-top: -1px;
+    }
+
+    .login-btn {
+      width: 100%;
+      height: 100%;
+      background-color: #1a67fe;
+      color: #FFFFFF;
+
+      &.disabled {
+        background-color: #BBBBBB;
+        color: #F7F7F7;
+      }
+    }
+
+    .login-error {
+      height: 38px;
+      vertical-align: middle;
+      background-color: #fff6f2;
+    }
+
+    .login-error-icon {
+      font-size: 20px;
+      color: #fd2400;
+      padding: 10px 0px;
+      background-color: #fef7f8;
+      width: 46px;
+      text-align: center;
+    }
+
+    .error-text {
+      font-size: 16px;
+      vertical-align: middle;
+      color: #ff2605;
+    }
+
+    .hidden {
+      display: none;
+    }
+    
+    .no-margin {
+      margin: 0;
+    }
+  }
+  
+  .chrome {
+    position: absolute;
+    right: 50px;
+    top: 555px;
+    color: #8f9eb5;
+    &-suggest {
+      font-size: 14px;
+    }
+    &-download {
+      img {
+        height: 36px;
+        width: 36px;
+      }
+      text-align: right;
+    }
+    &-name {
+      margin-left: 6px;
+      font-weight: bold;
+      height: 36px;
+      line-height: 36px;
+      font-size: 16px;
+      color: #9dc2fa;
+    }
+  }
+}

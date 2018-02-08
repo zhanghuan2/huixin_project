@@ -1,0 +1,28 @@
+﻿.searchPanel {
+  position: relative;
+  .search-btn-group{
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+  }
+/*   .select {
+    width: 160px;
+  }
+  .selectric {
+    width: 160px;
+  }
+  table tr td select {
+    width: 160px;
+  }
+  table tr td input[type="text"] {
+    width: 160px;
+  } */
+  .icon-zcy {
+    position: absolute;
+    right: 7px;
+  }
+  .setBtn {
+    position: relative;
+    width: 32px;
+  }
+}

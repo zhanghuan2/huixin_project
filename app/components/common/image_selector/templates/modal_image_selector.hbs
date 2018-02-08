@@ -1,0 +1,38 @@
+<div class="modal modal-image-selector modal-image-selector-use" data-event="{{event}}">
+  <div class="modal-header">
+    <a href="#" class="close">&times;</a>
+    <h2>选择图片</h2>
+  </div>
+  <div class="modal-body">
+    <span class="modal-body-heading">
+      <span class="modal-body-heading-note">上传的图片支持 PNG, JPG, GIF 等格式, 最大不超过 1MB, 或者从你自己的图库中选择想要的图片, 选中后再点击确定</span>
+      <div class="btn btn-primary btn-upload btn-medium">
+        <span>上传图片</span>
+        <input type="file" name="file" id="js-image-upload" multiple>
+      </div>
+    </span>
+    <div class="clearfix">
+      <ul class="modal-image-class clearfix">
+        <li class="active" data-type="2">files</li>
+        <li data-type="3">icon</li>
+        <li data-type="4">logo</li>
+        <li data-type="5">product</li>
+      </ul>
+      <div class="pull-right"><a class="btn btn-small js-create-folder" href="javascript:;">新建文件夹</a></div>
+      <div class="modal-local-list"></div>
+    </div>
+    <input type="hidden" class="js-folder-id" value="0">
+    <div class="modal-body-content">
+      <ul class="modal-image-list"></ul>
+      <div class="pagination pagination-unbordered"></div>
+    </div>
+    <div class="image-addr-wrap">
+      <input type="text" class="image-address js-image-address" placeholder="你也可以直接输入图片地址来使用图片">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success btn-medium submit">确定</button>
+    &nbsp;
+    <button class="btn btn-info btn-medium close">取消</button>
+  </div>
+</div>

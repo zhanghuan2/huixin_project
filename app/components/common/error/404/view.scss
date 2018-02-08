@@ -1,0 +1,22 @@
+.error-404 {
+  &-content {
+    margin-top: 18%;
+    overflow: hidden;
+  }
+  &-desc {
+    margin-top: 7%;
+    color: #000;
+    h1 {
+      font-weight: normal;
+    }
+    p {
+      margin: 5px 0;
+    }
+    .follow-line {
+      padding-left: 5em;
+    }
+    .btn {
+      margin-top: 1em;
+    }
+  }
+}

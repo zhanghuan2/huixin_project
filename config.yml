@@ -1,0 +1,146 @@
+paths:
+  public: "public"
+groups:
+  scripts:
+    paths:
+      - app/scripts
+    concat:
+      "/assets/scripts/app.js": "{app/{scripts,components}/**/*.{js,es6,jsx,coffee}}"
+      "/assets/scripts/vendor.js": "vendor/*.{js,es6,jsx,coffee}"
+      "/assets/scripts/upload.js": "vendor/{aliyun-sdk,oss-js-upload}.{js,jsx,coffee,es6}"
+    order:
+      - vendor/es5-shim.js
+      - vendor/es5-sham.js
+      - "vendor/pokeball.js"
+      - "..."
+      - "app/scripts/app.coffee"
+  styles:
+    paths:
+      - app/styles
+      - app/components
+    concat:
+      "/assets/styles/vendor.css": "vendor/**/*.{css,scss,sass}"
+      "/assets/styles/app.css": "{app/components/**/view.{css,scss,sass},app/styles/app.{css,scss,sass},app/styles/icons.scss}"
+    order:
+      - "vendor/moonball.css"
+      - "vendor/base.css"
+      - "..."
+      - "app/components/common/header/view.scss"
+  images:
+    paths:
+      - app/images
+    sprite:
+      "../app/styles/icons.scss": "app/images/**/*.png"
+    copy:
+      "/assets/images/": "{app/images/other-images/*}"
+  download:
+    paths:
+      - app/download
+    copy:
+      "/assets/download/": "{app/download/*}"
+  views:
+    paths:
+      - app/views
+    copy:
+      "/views": "app/views/**/*.hbs"
+      "/components/": "{app/components/**/view.hbs,app/components/**/other_templates/*.hbs}"
+    compile:
+      "/views": "app/views/**/*.erb"
+    context:
+      tips: false
+  templates:
+    paths:
+      - "app/components/"
+    precompile:
+      "/assets/scripts/templates.js": "app/components/**/templates/*.hbs"
+  files:
+    paths:
+      - "app/files"
+      - "app/components"
+    compile:
+      "/": "app/files/*"
+modules:
+  wrapper: "cmd"
+  ignored: "vendor/**/*"
+  definition: "/assets/scripts/app.js"
+sprites:
+  selector: ".icon-"
+  path: "/assets/images/"
+  url: "/assets/images/"
+revision:
+  files:
+    - /views/layout.hbs
+notification: true
+bundles:
+  "pokeball.js":
+    version: "master"
+    url: "http://registry.terminus.io/packages/pokeball/2.0.0.1/pokeball.js"
+  "moonball.css":
+    version: "master"
+    url: "http://registry.terminus.io/packages/pokeball/zcy/moonball.css"
+  "../app/styles/pokeball/_variables.scss":
+    version: master
+    url: http://registry.terminus.io/packages/theme/master/moonball.scss
+  es5-shim.js:
+    version: 4.5.7
+    url: http://cdn.bootcss.com/es5-shim/4.5.7/es5-shim.js
+  es5-sham.js:
+    version: 4.5.7
+    url: http://cdn.bootcss.com/es5-shim/4.5.7/es5-sham.js
+  wysihtml-toolbar.min.js:
+    version: 0.3.0
+    url: http://cdn.bootcss.com/wysihtml5/0.3.0/wysihtml5.min.js
+  advanced.js:
+    version: 0.3.0
+    url: http://registry.terminus.io/packages/wysihtml5/0.3/wysihtml5-advanced.js
+  select2.min.css:
+    version: master
+    url: https://git.cai-inc.com/d0409/web-solrock-vendor/raw/master/select2.min.css
+  select2.full.min.js:
+    version: master
+    url: https://git.cai-inc.com/d0409/web-solrock-vendor/raw/master/select2.full.min.js
+  select2.zh-CN.js:
+    version: master
+    url: https://git.cai-inc.com/d0409/web-solrock-vendor/raw/master/select2.zh-CN.js
+  oss-js-upload.js:
+    version: master
+    url: https://git.cai-inc.com/d0409/web-solrock-vendor/raw/master/oss-js-upload.js
+  "jQuery.print.js":
+    version: master
+    url: https://git.cai-inc.com/d0409/web-solrock-vendor/raw/master/jQuery.print.js
+  aliyun-sdk.js:
+    version: master
+    url: https://git.cai-inc.com/d0409/web-solrock-vendor/raw/master/aliyun-sdk.js
+  "bs-plugins.js":
+    version: master
+    url: https://git.cai-inc.com/d0409/web-solrock-vendor/raw/master/bs-plugins.js
+  "utils.js":
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/components/Utils/utils.js
+  "../app/components/common/header/view.hbs":
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/views/header/1.0.2/view.hbs
+  "../app/components/common/header/view.jsx":
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/views/header/1.0.2/view.jsx
+  "../app/components/common/header/view.scss":
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/views/header/1.0.2/view.scss
+  "../app/components/common/header/message/view.hbs":
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/views/header/1.0.2/message/view.hbs
+  "../app/components/common/header/todo/view.hbs":
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/views/header/1.0.2/todo/view.hbs
+  '../app/components/common/sidebar/view.hbs': 
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/views/sidebar/1.0.0/view.hbs
+  '../app/components/common/sidebar/view.jsx': 
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/views/sidebar/1.0.0/view.jsx
+  '../app/components/common/sidebar/view.scss': 
+    version: master
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/views/sidebar/1.0.0/view.scss
+  "jquery.lazyload.js":
+    version: 1.9.3
+    url: https://git.cai-inc.com/ZCY/zcy-web-lib/raw/master/jquery.lazyload.js

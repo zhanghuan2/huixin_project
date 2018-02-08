@@ -1,0 +1,23 @@
+<div id="getVerifyCodeDiv" class="modal" style="display: none; width: 550px;">
+  <div class="modal-header">获得验证码
+    <a href="javascript:;" class="close">&times;</a>
+  </div>
+  <div class="modal-body" style="min-height: 150px;">
+    <div style="margin: 15px;">
+      <span>手机号码为{{mobile}}</span>
+    </div>
+    <div style="margin: 15px;">
+      <label for="verifyCode">请输入验证码</label>
+      <input type="text" class="input-medium" id="verifyCode"/>
+      {{#equals isCoolDown true}}
+        <button type="button" class="btn" id="getVerifyCodeBtn" disabled="disabled">&nbsp;&nbsp;秒可再获取</button>
+      {{else}}
+        <button type="button" class="btn" id="getVerifyCodeBtn">获取验证码</button>
+      {{/equals}}
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-minor close">取消</button>
+    <button type="button" class="btn btn-primary" id="verifyCodeSubmitBtn" disabled>确定</button>
+  </div>
+</div>

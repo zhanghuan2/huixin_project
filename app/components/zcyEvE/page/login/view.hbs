@@ -1,0 +1,24 @@
+{{#component "medical-login-page js-comp"}}
+<div class="hide">{{json this}}</div>
+{{#inject "zcyEvE/comp/header"}}
+  {
+    "id": "-99",
+    "_categoryVisible": false
+  }
+{{/inject}}
+
+<div class="login-container layout">
+  <img class="login-img" src="/assets/images/other-images/medical-login.png">
+  <div class="login-main">
+    <div class="login-title">无法访问</div>
+    <div class="login-desc">医疗管采购平台目前仅对政采云用户开放</div>
+    <div>
+      <a class="btn btn-primary" href="{{_ENV_HREF_.login}}?target={{_ENV_HREF_.health-hall}}/medical/index">点击登录</a>
+    </div>
+    <div class="goto-index">
+      <a href="{{_ENV_HREF_.front}}">返回政采云首页</a>
+    </div>
+  </div>
+</div>
+
+{{/component}}

@@ -1,0 +1,136 @@
+@import "base/_variables";
+@import "base/_placeholder";
+
+//TODO 通过相关运算得到相关值
+$icon-size:24px;
+$color-activate:#197AFF;
+$color-font-activate:#ffffff;
+$color-font-gonna:#999999;
+
+$padding-text:10px;
+$margin-step:30px;
+$width-step-line:130px;
+$width-icon:24px;
+$width-step:140px;
+$height-step-line:1px;
+
+$left-line:-138px;
+$top-line:9px;
+
+.zcy-progress__new{
+  line-height: 1.5em;
+  @extend %clearfix;
+}
+
+%zcy-step{
+  position: relative;
+  float: left;
+  text-align: center;
+  width: $width-step;
+  margin-right:$margin-step;
+  & .zcy-step-title{
+    font-size:$fontSize-title__main;
+    padding-bottom: $padding-text;
+  }
+  & .zcy-step-des{
+    font-size: $fontSize-text__des;
+    padding-top: $padding-text;
+    color: $color-text__des;
+  }
+  &:first-child{
+    & .zcy-step-icon:before{
+      display: none;
+    }
+  }
+}
+
+
+//TODO 步骤标记
+%zcy-step-index{
+  position: absolute;
+  font-size: $fontSize-text__des;
+  width: $width-icon;
+  top:0;
+  left:0;
+}
+
+//图标框
+.zcy-step-icon{
+  position: relative;
+  width: $width-icon;
+  margin: auto;
+  &:before{
+    position: absolute;
+    width: $width-step-line;
+    height: $height-step-line;
+    left:$left-line;
+    top:$top-line;
+    content: "";
+    background-color: $color-text__des;
+  }
+}
+//已完成
+.zcy-step__completed{
+  @extend %zcy-step;
+  & .zcy-step-title{
+    color: $color-text__default;
+  }
+}
+
+.icon-step__completed{
+  color:$color-activate;
+  font-size:$icon-size ;
+  &:before{
+    content: "\e652";
+  }
+}
+
+.zcy-step-index__completed{
+  display: none;
+}
+
+//正在进行中
+.zcy-step__activated {
+  @extend %zcy-step;
+  .zcy-step-title{
+    color: $color-activate;
+  }
+  .zcy-step-icon:before{
+    background-color: $color-activate;
+  }
+}
+
+.icon-step__activated{
+  color:$color-activate;
+  font-size:$icon-size ;
+  &:before{
+    content: "\e6b7";
+  }
+}
+
+.zcy-step-index__activated{
+  @extend %zcy-step-index;
+  color:$color-font-activate;
+}
+
+//待进行
+.zcy-step__gonna {
+  @extend %zcy-step;
+  & .zcy-step-title{
+    color: $color-font-gonna;
+  }
+}
+
+.icon-step__gonna{
+  color:$color-text__des;
+  font-size:$icon-size ;
+  &:before{
+    content: "\e651";
+  }
+}
+
+.zcy-step-index__gonna{
+  @extend %zcy-step-index;
+  color:$color-text__des;
+}
+

@@ -1,0 +1,294 @@
+@import "icons";
+@import "base-layout";
+@import "compass/css3/inline-block";
+@import "compass/css3/box-sizing";
+@import "order";
+@import "pur_modal";
+@import "detail";
+@import "pokeball/ext_variables";
+@import "pokeball/theme";
+@import "zcy/zcy";
+@import "zcy_district";
+@import "zcy_address";
+@import "zcy_address_multiple";
+@import "common/theme";
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: '微软雅黑', Arial, "Hiragino Sans GB", \5b8b\4f53, sans-serif;
+  background-color: #eee;
+  min-width: 1200px;
+}
+
+.text-danger {
+  color: #FF625C;
+}
+
+.text-warn {
+  color: #F2C200;
+}
+
+.text-success {
+  color: #2DC12D;
+}
+
+.text-default {
+  color: #BBB;
+}
+
+.top-warning {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fde7c4;
+  color: #ca2f15;
+}
+
+.main-top{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 121;
+  display:block;
+  min-width: 1000px;
+}
+
+.main-left{
+  position: fixed;
+  left: 0;
+  width: $sidebar-width;
+  top: 0;
+  bottom: 0;
+  z-index: 101;
+  display:block;
+  background-color: $sidebar-bgcolor;
+}
+
+.main-left-mini{
+  width: $sidebar-width-mini;
+}
+
+.main-right {
+  margin-top:$header-height;
+  // margin-bottom:$foot-height;
+  margin-left:$sidebar-width;
+  position: relative;
+  z-index: 100;
+  right: 0;
+  padding: 16px;
+  padding-top: 0px;
+  height: 100%;
+  // min-height: 100%;
+  // overflow-y: auto;
+  display:block;
+}
+
+.main-right-mini {
+  margin-left: $sidebar-width-mini;
+}
+
+.main-foot{
+  // keep foot away here
+  position: fixed;
+  margin-left:$sidebar-width;
+  display:block;
+  z-index: 101;
+  height: $foot-height;
+  background-color: #fff;
+  border-top: 1px solid #e4eaec;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+
+  //
+  /* position: absolute;
+  margin-left:$sidebar-width;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: $foot-height;
+  border-top: 1px solid #e4eaec;
+  padding: 20px; */
+}
+
+.control-group-new{
+  width:450px;
+  @include inline-block(top);
+}
+
+.hide{
+  display: none;
+}
+
+ul{
+  padding: 0;
+}
+
+.overlay-iframe {
+  position: fixed !important;
+  top     : 0 !important;
+  bottom  : 0 !important;
+  right   : 0 !important;
+  left    : 0 !important;
+  width   : initial !important;
+  height  : initial !important;
+}
+
+hr{
+  height:1px;border:0;border-bottom:1px solid #E6E6E6;margin:0;
+}
+
+.login-center {
+  padding: 100px 160px;
+  width: 100%;
+  background-image: url('/assets/images/other-images/login_bg.jpg');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+  background-color: #09366f;
+  min-height: 1280px;
+}
+
+.zcy-progress {
+  padding: 30px 0 12px 0;
+  > ol{
+    text-align: center;
+    margin: 0;
+    > li{
+      margin: 0px 5px;
+    }
+  }
+
+  .progress-bar {
+    // width: 35px;
+    height: 4px;
+    background-color: #d8d8d8;
+    margin: 0px 5px;
+    &.finished {
+      background-color: #197aff;
+    }
+  }
+
+  .progress-step {
+    // width: 24px;
+    // height: 24px;
+    border: 1px solid #d8d8d8;
+    line-height: 23px;
+    background-color: white;
+    border-radius: 12px;
+    color: #cccccc;
+    &.finished {
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 12px;
+      border: 1px solid #197aff;
+      background-color: white;
+      color: #197aff;
+      &:before {
+        content: "√";
+        color: #197aff;
+        background:none;
+      }
+    }
+    &.active {
+      border: 1px solid #197aff;
+      background-color: #197aff;
+      color: white;
+    }
+    .progress-step-number{
+      background:none;
+    }
+  }
+
+  .progress-step-info {
+    line-height: 24px;
+    font-size: 18px;
+    color:#999;
+    margin: 0;
+
+    &.active {
+      color: #197aff;
+    }
+  }
+}
+
+/* 对select2的样式进行规范 */
+.select2-container {
+  &.select2-container--default {
+    &.select2-container--open {
+      .select2-selection--single {
+        .select2-selection__arrow {
+          b {
+            border-color: #24344E transparent transparent transparent;
+            border-width: 4px 4px 0 4px;
+          }
+        }
+      }
+    }
+
+    .select2-selection--single {
+      border: 1px solid #ccd0d6;
+      border-radius: 0;
+      outline: none;
+
+      .select2-selection__arrow {
+        height: 30px;
+        b {
+          border-color: #24344E transparent transparent transparent;
+          border-width: 4px 4px 0 4px;
+        }
+      }
+    }
+  }
+
+  .select2-selection--single {
+    height: 32px;
+  }
+
+  .select2-dropdown {
+    border-radius: 0;
+    border: 1px solid #ccd0d6;
+    border-top: 0;
+    .select2-search.select2-search--dropdown {
+      background-color: #f7f7f7;
+      .select2-search__field {
+        border: 1px solid #ccd0d6;
+        height: 24px;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMCAYAAABvEu28AAAACXBIWXMAAAsTAAALEwEAmpwYAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAABhklEQVR42mJkgIJjx45p/P79u/b///9mjIyMwkCh80B6hZ2d3WwGJACUZ8AGAAKIEUQcPHgwDqhgJlDjYSC9AUi/BQqbAnEmEB+WkpLyV1VV/YnPIIAAYjxy5Ij6nz9/LgA119rb2/cgSwJdqQJ05UGg3BKgy8rxGQQQQExAQ2qA9BF0Q0DAysrqDlBjzr9//4oPHz4syIAHAAQQE9QL63EpEBUV3Qp00V+ggUb4DAIIICagIjEg/RqXAm1t7V9AQz4BsQQ+gwACCOSi80xMTCa4FADDUA5IiQDV3MBnEEAAMQFtWgvEmUePHpXHpgAYhp1AV1+ysbE5j88ggABiAgbydCB9Dqhh/6FDh5yBhoKTBJAteuDAgUVAZgRQbC/QsH/4DAIIILCmq1ev8rx586YbqCEDqAEUHu+AwgpAfAPI3wikS4F0PjAJTMEV/QABxIjMASZMWaAGM1BkATVcA2o8BuT/AYonAcVmA9k5tra207EZBBBARCOgYclAr54HuQgbBggwAPE1t8ux5kczAAAAAElFTkSuQmCC");
+        padding-right: 25px;
+        background-repeat: no-repeat;
+        background-position: right center;
+      }
+    }
+
+
+  }
+
+}
+
+@media screen and (max-width: 1440px) {
+  .login-center {
+    min-height: 900px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .login-center {
+    min-height: 768px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .login-center {
+    min-height: 600px;
+  }
+}

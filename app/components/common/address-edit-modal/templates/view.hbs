@@ -1,0 +1,99 @@
+<div class="modal pur-modal" id="edit-address-modal">
+    <div class="modal-header" style="font-size:14px;">
+        {{#ifCond type '==' 'add'}}新增{{/ifCond}}{{#ifCond type '==' 'modify'}}修改{{/ifCond}}收货地址
+        <i class="icon-zcy icon-guanbi pull-right close"></i>
+    </div>
+    <div class="modal-body">
+        <table class="table-create" cellpadding="10px" id="addressTable">
+            <tr>
+                <td>
+                    <label for="receiverName" class="pull-right"><span class="required">*</span>收货人：</label>
+                </td>
+                <td>
+                    <input name="receiverName" type="text" max-length="25" placeholder="长度不超过25个字符" value="{{data.receiverName}}" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="address" class="pull-right"><span class="required">*</span>所在地区：</label>
+                </td>
+                <td class="address" name="address">
+                    <select class="address-select init" name="province" data-level='1' value="{{data.provinceCode}}" required>
+                        <option value="" disabled selected>--选择省份--</option>
+                        {{#ifCond type '==' 'modify'}}
+                            <option value="{{data.provinceCode}}" selected>{{data.province}}</option>
+                        {{/ifCond}}
+                    </select>
+                    <select class="address-select init" name="city" data-level='2' value="{{data.cityCode}}" required>
+                        <option value="" disabled selected>--选择城市--</option>
+                        {{#ifCond type '==' 'modify'}}
+                            <option value="{{data.cityCode}}" selected>{{data.city}}</option>
+                        {{/ifCond}}
+                    </select>
+                    <select class="address-select init" name="region" data-level='3' value="{{data.regionCode}}" required>
+                        <option value="" disabled selected>--选择区/县--</option>
+                        {{#ifCond type '==' 'modify'}}
+                            <option value="{{data.regionCode}}" selected>{{data.region}}</option>
+                        {{/ifCond}}
+                    </select>
+                    <select class="address-select init" name="street" data-level='4' value="{{data.streetCode}}">
+                        <option value="" disabled selected>--选择街道--</option>
+                        {{#ifCond type '==' 'modify'}}
+                            <option value="{{data.streetCode}}" selected>{{data.street}}</option>
+                        {{/ifCond}}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="details" class="pull-right"><span class="required">*</span>详细地址：</label>
+                </td>
+                <td>
+                    <textarea name="details"  max-length="100" rows="8" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息." icon="false" value="{{data.details}}" required>{{data.details}}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="zip" class="pull-right">邮政编码：</label>
+                </td>
+                <td>
+                    <input name="zip" type="text" placeholder=""  value="{{data.zip}}" checker-pattern="^[1-9][0-9]{5}$" checker-text="输入无效">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mobile" class="pull-right">手机号码：</label>
+                </td>
+                <td>
+                    <input name="mobile" type="text" placeholder="" value="{{data.mobile}}" checker-type="mobile" icon="true">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="telephone" class="pull-right">电话号码：</label>
+                </td>
+                <td name="telephone">
+                    <input name="areaCode" type="text" placeholder="区号" value="{{data.areaCode}}" checker-pattern="^\d{3,4}$"/>
+                    <input name="phone" type="text" placeholder="电话号码" value="{{data.phone}}" checker-pattern="^\d{7,8}$">
+                    <input name="phoneExt" type="text" placeholder="分机" value="{{data.phoneExt}}" checker-type='Number'/>
+                </td>
+            </tr>
+            {{#ifCond type '==' 'add'}}
+                <tr>
+                    <td></td>
+                    <td><span class="defc">手机号码与固定电话必须输入其中一项。</span></td>
+                </tr>
+            {{/ifCond}}
+            <tr>
+                <td rospan="2"></td>
+                <td>
+                    <input type="checkbox" name="isDefault" {{#equals data.isDefault true}}checked{{/equals}}/> 设为默认收货地址
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer form-control">
+        <button class="btn btn-primary btn-medium" id="save-edit-address" disabled>保存</button>
+        <button class="btn btn-medium close">取消</button>
+    </div>
+</div>

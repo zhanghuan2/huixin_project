@@ -1,0 +1,87 @@
+{{#component "shuttle"}}
+  <span style="display:none" id="shuttle-total-num"></span>
+  <div class="shuttle-sides shuttle-left">
+  <span class="pull-left" style="margin-top:-33px;">未选(
+    <span id="shuttle-unchecked-num"></span>
+  )</span>
+  <a href="javascript:;" class="pull-right select-all" name="shuttle-tree-left" style="margin-top:-33px;">全选</a>
+    {{#equals _TYPE_ "array"}}   
+    <select name="shuttle-array" id="shuttle-array-left">
+      <option value=""></option> 
+    </select>
+    {{/equals}}
+    {{!-- 树形结构 --}}
+    {{#equals _TYPE_ "tree"}} 
+    <div class="select-search">
+      <input type="text" class="shuttle-select-search" id="shuttle-select-search-left">
+      <i class="icon-zcy icon-sousuo"></i>  
+    </div>  
+    <div class="shuttle-selectbox">
+      <div name="shuttle-tree" id="shuttle-tree-left" class="hide">
+        {{#each _DATA_TREE_.data.children}}
+        <ul>
+          <li id="{{node.id}}">{{node.name}}
+            {{#each children}}
+            <ul>
+              <li id="{{node.id}}">{{node.name}}
+                {{#each children}}
+                <ul>
+                  <li id="{{node.id}}">{{node.name}}</li>
+                </ul>
+                {{/each}}
+              </li>
+            </ul>
+            {{/each}}
+          </li>
+        </ul>
+        {{/each}}
+      </div>
+    </div>
+
+    {{/equals}}
+  </div>
+  <div class="shuttle-button">
+    <div class="icon-disable-l2r" id="L2R"></div>
+    <div class="icon-disable-r2l" id="R2L"></div>
+  </div>
+  <div class="shuttle-sides shuttle-right">
+    <span class="pull-left" style="margin-top:-33px;">已选(
+      <span id="shuttle-checked-num"></span>
+    )</span>
+    <a href="javascript:;" class="pull-right select-all" name="shuttle-tree-right" style="margin-top:-33px;">全选</a>
+    {{#equals _TYPE_ "array"}}   
+    <select name="shuttle-array" id="shuttle-array-right">
+      <option value=""></option> 
+    </select>
+    {{/equals}}
+    {{!-- 树形结构 --}}
+    {{#equals _TYPE_ "tree"}}   
+
+    <div class="select-search">
+      <input type="text" class="shuttle-select-search" id="shuttle-select-search-right">
+      <i class="icon-zcy icon-sousuo"></i>  
+    </div>
+    <div class="shuttle-selectbox">
+      <div name="shuttle-tree" id="shuttle-tree-right" class="hide">
+        {{#each _DATA_TREE_.data.children}}
+        <ul>
+          <li id="{{node.id}}">{{node.name}}
+            {{#each children}}
+            <ul>
+              <li id="{{node.id}}">{{node.name}}
+                {{#each children}}
+                <ul>
+                  <li id="{{node.id}}">{{node.name}}</li>
+                </ul>
+                {{/each}}
+              </li>
+            </ul>
+            {{/each}}
+          </li>
+        </ul>
+        {{/each}}
+      </div>
+    </div>
+    {{/equals}}
+  </div>
+{{/component}}

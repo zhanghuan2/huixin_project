@@ -1,0 +1,169 @@
+{{#unless user.mobile}}
+  {{#unless user.email}}
+    <div class="row">
+      <div class="col-12">
+        <div class="panel border-panel warnDiv">
+          <span class="warnSpan">请完善个人信息</span>
+        </div>
+      </div>
+    </div>
+  {{/unless}}
+{{/unless}}
+<div class="row">
+  <div class="col-7">
+    <div class="panel border-panel panelHeight">
+      <div class="panel-header">
+        <span>用户信息</span>
+
+        <div class="head-btn">
+          <button type="button" class="btn btn-minor" id="basicInfoEditBtn">编辑</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="info-block">
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="name">姓名：</label></div>
+            <div class="col-3 info-content">
+              <label>{{user.displayName}}</label>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label>性别：</label></div>
+            <div class="col-3 info-content" id="genderDiv">
+              <label>{{#equals profile.gender 1}}女{{else}}男{{/equals}}</label>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="idType">证件类型：</label></div>
+            <div class="col-3 info-content">
+              <label>
+              {{#if profile.idType}}
+              {{else}}
+              身份证
+              {{/if}}</label>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="idNo">证件号码：</label></div>
+            <div class="col-3 info-content">
+              <label>{{profile.idNo}}</label>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="mobile">手机：</label></div>
+            <div class="col-9 info-content">
+              <label id="mobile" style="width: 190px">{{user.mobile}}</label>
+              {{#if user.mobile}}
+                {{#equals user.mobileVerified true}}
+                  <span class="status-able">已验证</span>
+                {{else}}
+                  <button type="button" class="btn btn-minor checkButton" id="verifyMobileBtn">验证</button>
+                {{/equals}}
+              {{/if}}
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label>电话：</label></div>
+            <div class="col-3 info-content">
+              <label>{{employee.phone}}</label>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label>传真：</label></div>
+            <div class="col-3 info-content">
+              <label>{{employee.faxNo}}</label>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label for="email">电子邮箱：</label></div>
+            <div class="col-9 info-content">
+              <label id="email" style="width: 190px">{{user.email}}</label>
+              {{#if user.email}}
+                {{#equals user.emailVerified true}}
+                  <span class="status-able">已验证</span>
+                {{else}}
+                  <button type="button" class="btn btn-minor checkButton" id="verifyEmailBtn">验证</button>
+                {{/equals}}
+              {{/if}}
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-3 info-title"><label>地址：</label></div>
+            <div class="col-3 info-content">
+              <label>{{profile.address}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-5">
+    <div class="panel border-panel panelHeight">
+      <div class="panel-header">
+        帐号信息
+      </div>
+      <div class="panel-body">
+        <div class="info-block">
+          <div class="row info-line">
+            <div class="col-4 info-title">员工编号：</div>
+            <div class="col-5 info-content">
+              <span>{{employee.empNo}}</span>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-4 info-title">帐号：</div>
+            <div class="col-5 info-content" id="accountDiv">
+              <span id="accountSpan">{{#if user.account}}{{user.account}}{{else}}-{{/if}}</span>
+            </div>
+            {{#equals user.accountSet false}}
+              <div class="col-3 info-content">
+                <button class="btn btn-minor" id="accountConfig">配置</button>
+              </div>
+            {{/equals}}
+          </div>
+          {{#ifCond category "==" "02" }}
+            <div class="row info-line">
+              <div class="col-4 info-title">所属机构：</div>
+              <div class="col-5 info-content">
+                <span>{{employee.orgName}}</span>
+              </div>
+            </div>
+          {{else ifCond category "==" "88" }}
+          {{else}}
+            <div class="row info-line">
+              <div class="col-4 info-title">所属机构：</div>
+              <div class="col-5 info-content">
+                <span>{{employee.orgName}}</span>
+              </div>
+            </div>
+            <div class="row info-line">
+              <div class="col-4 info-title">所属部门：</div>
+              <div class="col-5 info-content">
+                <span>{{employee.depName}}</span>
+              </div>
+            </div>
+          {{/ifCond}}
+          <div class="row info-line">
+            <div class="col-4 info-title">所属岗位：</div>
+            <div class="col-8 info-content text-overflow" title="{{#each employee.posts}} {{name}}{{/each}}">
+              {{#each posts}} {{name}}{{/each}}
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-4 info-title">入职时间：</div>
+            <div class="col-5 info-content">
+              <span>{{formatDate employee.hiredAt "day"}}</span>
+            </div>
+          </div>
+          <div class="row info-line">
+            <div class="col-4 info-title">帐号状态：</div>
+            <div class="col-5 info-content">
+              {{#equals user.status 0}}<span class="status-disable">未激活</span>{{/equals}}
+              {{#equals user.status 1}}<span class="status-able">正常</span>{{/equals}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

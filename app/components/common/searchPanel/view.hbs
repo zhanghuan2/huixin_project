@@ -1,0 +1,83 @@
+{{#component "searchPanel js-comp"}}
+<div class='search-panel'>
+<span id="search-config" hidden value="{{json _SEARCH_CONFIG_}}"></span>
+  <table>
+  {{#assign "a"}}0{{/assign}}
+  {{#each _SEARCH_DATA_}}
+    {{#unless hidden}}
+      {{#equals a 0}}
+        <tr>
+      {{else}}
+        {{#of a "3,6,9,12"}}</tr><tr>{{/of}}
+      {{/equals}}
+      {{#assign "a"}}{{add a 1}}{{/assign}}
+    {{/unless}}
+    <td class="search-label" {{#if hidden}}hidden{{/if}}>
+      {{label}}：
+    </td>
+    <td {{#if hidden}}hidden{{/if}}>
+      <span class="search-data" data-label="{{label}}">
+        {{#if component}}
+        {{inject component}}
+        {{else}}
+        {{#equals type "text"}}
+          <input type="text" class="search" name="{{name}}" placeholder="{{#if placeholder}}{{placeholder}}{{else}}请输入{{/if}}">
+        {{/equals}}
+        {{#equals type "select"}}
+        <select name="{{name}}" class="search">
+          {{#each data}}
+          <option value="{{value}}">{{text}}</option>
+          {{/each}}
+        </select>
+        {{/equals}}
+        {{#equals type "date"}}
+        <input type="text" class="search date-input timeStart" name="{{name1}}" placeholder="{{#if placeholder1}}{{placeholder1}}{{else}}开始日期{{/if}}">
+        -
+        <input type="text" class="search date-input timeEnd" name="{{name2}}" placeholder="{{#if placeholder2}}{{placeholder2}}{{else}}结束日期{{/if}}">
+        {{/equals}}
+        {{/if}}
+      </span>
+    </td>
+  {{/each}}
+  </table>
+
+  <span class="search-btn-group">
+    {{#if _HAS_SET_}}
+    <div name="sizeLBtnGroup" class="mb" style="position:relative;height:32px" {{#gt a 3}}{{else}}hidden{{/gt}}>
+      <button class="btn btn-ghost setBtn" data-toggle="modal" data-target="#set-option" style="position:absolute;right:0;">
+        &nbsp;<i class="icon-zcy icon-shezhi"></i>
+      </button>
+    </div>
+    {{/if}}
+    <div>
+      <button class="btn btn-minor mr" id="searchBtn">搜索</button><button class="btn btn-ghost" id="resetBtn">重置</button>{{#if _HAS_SET_}}<span name="sizeSBtnGroup" {{#gt a 3}}hidden{{/gt}}><button class="btn btn-ghost setBtn ml" data-toggle="modal" data-target="#set-option">
+          &nbsp;<i class="icon-zcy icon-shezhi"></i>
+        </button>
+      </span>
+      {{/if}}
+    </div>
+  </span>
+</div>
+{{/component}}
+<div id="set-option" class="modal" style="display:none">
+  <div class="modal-header">自定义筛选项
+    <a href="javascript:;" class="close">&times;</a>
+  </div>
+  <div class="modal-body pb0" style="width:550px">
+  <table style="width:100%">
+    {{#each _SEARCH_DATA_}}
+    {{#equals @index 0}}
+      <tr>
+    {{else}}
+      {{#of @index "4,8,12,16,20,24,28"}}</tr><tr>{{/of}}
+    {{/equals}}
+    <td class="pr-xl">
+        <input type="checkbox" class="mr mb-xl" style="vertical-align:sub;" {{#unless hidden}}checked{{/unless}}>{{label}}
+    </td>
+    {{/each}}
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-minor close mr">取消</button><button class="btn btn-primary close" id="do-set-option">保存</button>
+  </div>
+</div>

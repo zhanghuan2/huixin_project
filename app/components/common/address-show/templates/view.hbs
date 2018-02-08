@@ -1,0 +1,46 @@
+<div id="address-show">
+    <table class="table table-padding" width="50%">
+        <thead>
+        <tr>
+            <th width="5%">序号</th>
+            <th width="25%">详细地址</th>
+            <th width="10%">收货人</th>
+            <th width="10%">手机</th>
+            <th width="15%">电话</th>
+            <th width="10%">数量</th>
+            <th width="23%">备注</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each data}}
+            <tr data-address-id="{{id}}">
+                <td>{{add @index 1}}</td>
+                <td>{{fullAddress}}</td>
+                <td>{{receiverName}}</td>
+                <td>
+                    {{#if mobile}}
+                        {{mobile}}
+                    {{else}}
+                        -
+                    {{/if}}
+                </td>
+                <td>
+                    {{#if fullPhone}}
+                        {{fullPhone}}
+                    {{else}}
+                        -
+                    {{/if}}
+                </td>
+                <td>{{quantity}}</td>
+                <td class="address-remark" title="{{remark}}">
+                    {{#if remark}}
+                        {{remark}}
+                    {{else}}
+                        -
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

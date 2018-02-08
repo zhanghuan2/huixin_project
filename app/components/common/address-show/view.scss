@@ -1,0 +1,16 @@
+#address-show {
+    table {
+        table-layout: fixed;
+        tbody {
+            tr {
+                td.address-remark {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    word-break: break-all;
+                    word-wrap: normal;
+                }
+            }
+        }
+    }
+}

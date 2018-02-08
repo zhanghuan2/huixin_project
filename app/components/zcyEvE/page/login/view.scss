@@ -1,0 +1,42 @@
+@import "common/variables";
+
+.medical-login-page {
+  .login-container {
+    overflow: hidden;
+    width: $page-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 78px 0 142px 145px;
+  }
+  .login-img {
+    float: left;
+    width: 320px;
+    height: 296px;
+  }
+  .login-main {
+    float: left;
+    margin-left: 60px;
+  }
+  .login-title {
+    margin-top: 75px;
+    font-size: 24px;
+    line-height: 31px;
+    color: #24344E;
+  }
+  .login-desc {
+    font-size: 14px;
+    color: #626262;
+    line-height: 20px;
+    margin-top: 20px;
+  }
+  .btn {
+    margin-top: 20px;
+  }
+  .goto-index {
+    margin-top: 10px;
+    a {
+      font-size: 14px;
+      color: #197AFF;
+    }
+  }
+}

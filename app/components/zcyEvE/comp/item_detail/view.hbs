@@ -1,0 +1,254 @@
+{{#component "item-detail js-comp"}}
+  <p class="hide">{{json}}</p>
+  <div class="hide envHref" data-href="{{_ENV_HREF_.health}}">{{_ENV_HREF_.health}}</div>
+  <input type="hidden" id="YZHD_ITEMID" value="{{itemId}}">
+  <input type="hidden" name="urlInquiry" value="{{_ENV_HREF_.inquiry}}">
+  <input type="hidden" id="lasvegasPath" data-district-id="{{_DATA1_.districtId}}"
+         value="{{_ENV_HREF_.lasvegas}}">
+  <input type="hidden" id="frontPath" value="{{_ENV_HREF_.front}}">
+
+  <p class="item-bread-crumb">
+    <a href="/medical/search" style="color:#333;">全部</a>
+    <i class="icon-zcy icon-nextstep"></i>
+    商品详情
+  </p>
+
+  <div class="item-detail-left" id="js-item-detail-left">
+    <div class="image-manage" data-item-detail="{{_DATA_.itemDetail.id}}" data-user="{{json _USER_}}">
+      <a class="main-image js-main-image-container zoom" href="{{_DATA_.item.mainImage}}">
+        <img alt="{{_DATA_.item.name}}" src="{{_DATA_.item.mainImage}}" class="js-main-image" width="380" height="380"/>
+        <i class="icon-zcy icon-search image-enlarge"></i>
+      </a>
+
+      <div class="carousel-wrap item-carousel-wrap js-comp" data-comp-path="common/more_carousel">
+        <div class="carousel show">
+          <ul class="images carousel-container clearfix" data-time="" data-auto="false" data-length="5" data-type="0"
+              data-size="{{add (size _DATA_.imageInfos) 1}}">
+            <li class="selected" style="width:20%">
+              <img id="itemMainImage" class="thumbnail" src="{{_DATA_.item.mainImage}}" alt="{{_DATA_.item.name}}"
+                   data-src="{{_DATA_.item.mainImage}}"/>
+            </li>
+            {{#each _DATA_.imageInfos}}
+              <li style="width:20%">
+                <img class="thumbnail" src="{{url}}" alt="{{#if name}}{{name}}{{else}}{{_DATA_.item.name}}{{/if}}"
+                     data-src="{{url}}"/>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <a class="prev outside" href="javascript:void(0);"></a>
+        <a class="next outside" href="javascript:void(0);"></a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="item-detail-right" id="js-item-detail-right">
+    <div class="goods-detail">
+      <div class="item-title" data-id="{{itemId}}" data-status="{{_DATA_.item.status}}">
+        <h1 title="{{_DATA_.item.name}}" id="js-item-name">{{_DATA_.item.name}}</h1>
+        <a href="{{_ENV_HREF_.middle}}/report/report-fill?accusationType=商品举报&businessId={{itemId}}">
+          <div class="js-report-item report-item">举报</div>
+        </a>
+        <input name="mSkuid" type="hidden" value="{{_DATA1_.goodDto.skuId}}"/>
+      </div>
+
+      {{#equals _DATA_.item.tags.vaccine 1}}
+      {{else}}
+        {{#if _DATA_.gpCatalog}}
+        <p class="item-platform-link-warp" style="color:#82BA2A">采购目录：
+        <span class="total-sold"
+              title="{{#if _DATA_.gpCatalog}}{{#each _DATA_.gpCatalog}}{{this}}&nbsp;&nbsp;{{/each}}{{/if}}">
+
+          {{#each _DATA_.gpCatalog}}
+            {{this}}
+          {{/each}}
+        {{else}}
+          暂无目录
+        </span>
+        </p>
+        {{/if}}
+      {{/equals}}
+
+      <div class="item-info">
+        <div class="item-info-msg">
+          <ul class="item-info-list clearfix">
+            <li class="price-li">
+              <label class="first-line">
+                <span class="item-label">协议价</span>
+                <span class="item-price">
+                  <span id="js-item-price" class="price" data-range="{{_DATA1_.agreementPrice}}">
+                    ¥<span class="price-num">{{_DATA1_.agreementPrice}}</span>
+                  </span>
+            </span>
+              </label>
+            </li>
+             <li class="outer-li">
+              <label class="first-line">
+                <span class="item-label"></span>
+                <span class="outer-price">
+                  <span id="js-item-platform-price" data-range="-" data-currency="{{_CURRENCY_}}">
+                  ¥{{_DATA1_.marketPrice}}
+                </span>
+                </span>
+              </label>
+            </li>
+            <li class="group-li hide" id="group-li" data-price='{{_DATA1_.agreementPrice}}'>
+                <label class="first-line">
+                  <span class="item-label">团购价</span>
+                  <span>
+                    <span class="group-price">
+                      {{#if _DATA1_.groupPrice}}
+                        {{#if _DATA1_.groupQuantity}}
+                        ¥<span class="price-num">{{_DATA1_.groupPrice}}.00</span>
+                        <span class="group-quantity">{{_DATA1_.groupQuantity}}件以上</span>
+                        {{else}}
+                          -
+                        {{/if}}
+                      {{else}}
+                        -
+                      {{/if}}
+                    </span>
+                  </span>
+                </label>
+            </li>
+          </ul>
+          <div class="item-info-discount">
+            <div class="discount-label">优惠率</div>
+            <div class="discount-precent">
+                {{#if _DATA1_.discountRate}}{{_DATA1_.discountRate}}{{else}}98{{/if}}%
+              </div>
+          </div>
+        </div>
+        <ul class="item-info-list-pj">
+          <li>
+            <label>累计评价：<span class="total-sold">{{#if
+              _DATA1_.totalEvaluateTimes}}{{_DATA1_.totalEvaluateTimes}}{{else}}0{{/if}}</span></label>
+          </li>
+          <li>
+            <label>总销量：<span class="total-sold">{{#if _DATA1_.saleQuantity}}{{_DATA1_.saleQuantity}}{{else}}
+              0{{/if}}</span></label>
+          </li>
+          <li>
+            <label>满意度：<span class="satisfaction">{{#if _DATA1_.currentScore}}{{_DATA1_.currentScore}}{{else}}
+              100{{/if}}分</span></label>
+          </li>
+        </ul>
+      </div>
+
+      {{#equals _DATA1_.status 1}}<!--  1上架 -1下架 -3冻结  -->
+        <div class="item-skus">
+          <a href="javascript:void(0);" class="close-warning" style="display:none;">×</a>
+          <ul id="choose" data-skus="{{json _DATA_.skus}}" data-attrs="{{json _DATA_.groupedSkuAttrs}}">
+            <li id="choose-region">
+              <div class="controls">
+                {{inject "zcyEvE/comp/address_select_down"}}
+              </div>
+            </li>
+            {{#each _DATA_.groupedSkuAttrs}}
+              <li class="sku-choose js-attr-sort" data-index="{{@index}}">
+                <div class="control-group">
+                  <label class="dt sku-items-label" for="input-name">{{attrKey}}：</label>
+                  <div class="smdd sku-items">
+                    <div class="wrap-input">
+                      <a class="{{#if skuAttributes.[0].image}}skuAttributes.[0].hasImage{{/if}} js-sku-attr sku-attr"
+                         data-show="{{skuAttributes.[0].showImage}}"
+                         {{#if skuAttributes.[0].image}}data-src="{{skuAttributes.[0].image}}"{{/if}}
+                         data-id="{{skuAttributes.[0].id}}" href="javascript:;" title="{{skuAttributes.[0].attrVal}}"
+                         data-attr="{{skuAttributes.[0].attrKey}}:{{skuAttributes.[0].attrVal}}"
+                         data-key="{{skuAttributes.[0].attrKey}}">{{#if
+                        skuAttributes.[0].image}}{{else}}{{skuAttributes.[0].attrVal}}{{/if}}</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {{/each}}
+            <li id="choose-amount">
+              <div class="control-group">
+                <label class="dt sku-items-label" for="input-name">购买数量</label>
+                <div class="controls">
+                  <div class="input-amount js-item-stock-quantity" data-max="">
+                    <a href="javascript:void(0);" class="disabled minus">-</a>
+                    <input maxlength="6" type="text" value="1" class="count-number" id="item-quantity" data-old="1"
+                           data-max-stock="">
+                    <a href="javascript:void(0);" class="plus">+</a>
+                  </div>
+                  <span>&nbsp;&nbsp;{{_DATA1_.unit}}</span>
+                  &nbsp;&nbsp;&nbsp;
+                  <span class="total-stock hide">
+                    库存<span class="item-quantity" id="js-item-stock"
+                        data-stock="999999999">{{_DATA1_.stock}}</span>{{_DATA1_.unit}}</span>
+                </div>
+              </div>
+            </li>
+            {{#if _USER_.id}}
+              {{#equals _USER_.type 1}}
+                {{#equals _ELEMENT_.healthShoppingCart true}}
+                  <li id="choose-btns" data-price="{{_DATA1_.agreementPrice}}">
+                    <button class="btn btn-large btn-primary btn-icon js-add-cart add-cart hide" type="button">
+                      加入购物车
+                    </button>
+                    <button class="btn btn-large js-buy-now purchase" disabled type="button" data-org="{{_USER_.orgId}}">
+                      生成竞价单
+                    </button>
+                  <span class="warning-words required" style="display:none;">{{i18n
+                  "Please tick the product info you want " bundle="all_mix"}}</span>
+                  <span class="stock-empty hide required">{{i18n "Insufficient product in inventory " bundle="all_mix"}}
+                    ，{{i18n "Please choose other item" bundle="all_mix"}}</span>
+                  </li>
+                {{/equals}}
+              {{!-- {{/equals}} --}}
+              {{/equals}}
+            {{/if}}
+          </ul>
+        </div>
+      {{else}}
+        <div class="item-not-on">
+          <div class="status-desc">
+            <p>
+              亲，你来晚了，此商品已下架
+            </p>
+          </div>
+        </div>
+      {{/equals}}
+
+
+    </div>
+
+
+    <div class="supplier-detail">
+      <div class="supplier-detail-title">
+        ———&nbsp;&nbsp;&nbsp;商家信息&nbsp;&nbsp;&nbsp;———
+      </div>
+      <div class="supplier-detail-msg">
+        <div class="supplier-detail-msg-logo">
+          <img src="{{_DATA3_.logoPath}}">
+        </div>
+        <div class="supplier-detail-msg-name">{{_DATA3_.name}}</div>
+        <div class="supplier-detail-msg-detail">
+          <div>
+            <i class="icon-zcy icon-detailszd"></i>
+            所在地：{{_DATA3_.addrProvinceName}}{{_DATA3_.addrCityName}}{{_DATA3_.addrRegionName}}{{_DATA3_.bizAddress}}
+          </div>
+          <div>
+            <i class="icon-zcy icon-gongsi"></i>
+            公司规模：{{_DATA3_.enterpriseScale}}
+          </div>
+          <div>
+            <i class="icon-zcy icon-detailjyms"></i>
+            联系人：{{_DATA3_.contactPersonName}}
+          </div>
+          <div>
+            <i class="icon-zcy icon-call"></i>
+            联系方式：{{_DATA3_.contactPhone}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="clear:both;"></div>
+
+{{/component}}

@@ -1,0 +1,67 @@
+@import "compass/css3/inline-block";
+@import "pokeball/theme";
+
+.pur-modal{
+  width: 800px;
+  .block{
+    background-color: #F2F6F9;
+    line-height: 30px;
+  }
+  .sku-attrs{
+    color: #BBB;
+  }
+  .price, .currency{
+    color: #FE7800;
+  }
+  .no-href{
+    color: #9E9E9C;
+  }
+  .modal-footer{
+    div{
+      display: inline;
+      &:last-child{
+        float: left; line-height:40px;
+      }
+    }
+  }
+  .list-pagination {
+    text-align: right;
+    margin: 10px 0 10px 0;
+  }
+  table{
+    thead{
+      tr{
+        background-color: #F7F7F7;
+        color: #9F9F9F;
+        th{
+          text-align: left;
+          border: 1px solid $default-border-color;
+          border-width: 0 0 1px 0;
+          &:first-child{
+            border-width: 0 0 1px 1px;
+          }
+          &:last-child{
+            border-width: 0 1px 1px 0;
+            text-align: right;
+          }
+        }
+      }
+    }
+    tbody{
+      tr{
+        border: 1px solid #e7e9ea;
+        td{
+          text-align: left;
+          border-width: 0 0 1px 0;
+          &:first-child{
+            border-width: 0 0 1px 1px;
+          }
+          &:last-child{
+            border-width: 0 1px 1px 0;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

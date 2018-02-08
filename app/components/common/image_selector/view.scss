@@ -1,0 +1,58 @@
+@import "pokeball/theme";
+@import "compass/css3/border-radius";
+
+.modal-image-selector-use {
+  .modal-body-heading-note {
+    min-height: 36px;
+  }
+  .modal-image-class {
+    float: left;
+    li {
+      float: left;
+      padding: 0 5px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      list-style: none;
+      color: $default-overlay-color;
+      &.active {
+        color: #000;
+      }
+    }
+  }
+  .modal-local-list {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    zoom: 1;
+  }
+  .modal-image-list {
+    width: 670px;
+    li {
+      list-style: none;
+      .item-name {
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-indent: 3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+        background-color: rgba(0, 0, 0, .5);
+      }
+      .btn-trash {
+        z-index: 2;
+      }
+    }
+    i {
+      font-size: 100px;
+      width: 100%;
+      text-align: center;
+      line-height: 104px;
+      color: $default-hover-color;
+    }
+  }
+}

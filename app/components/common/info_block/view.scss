@@ -1,0 +1,36 @@
+.info-block {
+  padding: {
+    top: 10px;
+    bottom: 10px;
+  }
+  .info-line {
+    overflow: visible;
+    margin-top: 10px;
+    line-height: 30px;
+    .info-title {
+      text-align: right;
+      font-size: 12px;
+      color: #999999;
+      &.info-title-new{
+        color: #24344e;
+      }
+    }
+    .info-content {
+      font-size: 12px;
+      color: #666666;
+      input {
+        max-width: 190px;
+      }
+      select{
+        max-width: 190px;
+      }
+      textarea {
+        max-width: 260px;
+        width: 100%;
+      }
+    }
+  }
+  .textarea {
+    max-width: 260px;
+  }
+}

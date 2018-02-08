@@ -1,0 +1,17 @@
+{{#each this}}
+  <ul>
+    <li id="{{id}}">{{name}}
+      {{#each childs}}
+      <ul>
+        <li id="{{id}}">{{name}}
+          {{#each childs}}
+          <ul>
+            <li id="{{id}}">{{name}}</li>
+          </ul>
+          {{/each}}
+        </li>
+      </ul>
+      {{/each}}
+    </li>
+  </ul>
+{{/each}}

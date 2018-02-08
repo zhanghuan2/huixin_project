@@ -1,0 +1,30 @@
+$warning-color: #F79000;
+
+.zcy-modal {
+
+  .modal-header {
+    font-size: 20px;
+  }
+  .modal-body {
+    min-height: 140px;
+  }
+
+  &-static-content {
+    margin-top: 30px;
+    .icon-zcy {
+      font-size: 32px;
+      color: $warning-color;
+    }
+  }
+
+  &-static-desc {
+    font-size: 16px;
+    padding-left: 0;
+  }
+
+  &-textarea-content {
+    textarea {
+      width: 100%;
+    }
+  }
+}

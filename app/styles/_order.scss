@@ -1,0 +1,257 @@
+@import "compass/css3/inline-block";
+@import "pokeball/theme";
+
+.order-manage {
+  .orders-table {
+
+    .trade-status-select {
+      width: 120px;
+    }
+
+    .set-height-tr {
+      td {
+        padding: 0;
+        height: 10px;
+      }
+    }
+
+    .order-info-tr {
+      background-color: $default-background-color;
+
+      .left-text {
+        padding-left: 10px;
+      }
+
+      .shop-name  {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 250px;
+        @include inline-block(top);
+      }
+
+      td {
+        border-width: 1px;
+        border-color: $default-border-color;
+        border-style: solid;
+        height: 30px;
+        padding: 5px 0 5px 10px;
+
+        .address {
+          float: right;
+          line-height: 12px;
+          margin-right: 12px;
+        }
+
+        i {
+          @include inline-block(top);
+        }
+      }
+    }
+
+    .order-tr {
+      >td {
+        padding: 0;
+        vertical-align: top;
+      }
+
+      td.order-items {
+        border-left: 1px solid $default-border-color;
+        border-bottom: 1px solid $default-border-color;
+      }
+
+      td.total-price {
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: $default-border-color;
+        padding-top: 10px;
+      }
+
+      td.order-status {
+        border: 1px solid $default-border-color;
+        line-height: 20px;
+        padding-top: 10px;
+
+        p {
+          margin: 0;
+        }
+      }
+
+      td.presale-td {
+        border-right: 1px solid $default-border-color;
+      }
+
+      .time-span {
+        color: $default-warning-color;
+      }
+    }
+
+    .order-extra {
+      background-color: $default-background-color;
+
+      td {
+        border-width: 0 1px 1px 1px;
+        border-color: $default-border-color;
+        border-style: solid;
+        height: 20px;
+        padding: 5px 0 5px 10px;
+      }
+    }
+
+    .top-five {
+      margin-top: 5px;
+    }
+
+    .items-table {
+      width: 650px;
+
+      tr {
+        border-right: 1px solid $default-border-color;
+
+        &.last {
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+
+      td {
+        vertical-align: top;
+
+        &.last {
+          border-bottom: none;
+        }
+
+        &.pre-return {
+          border-bottom: none;
+          border-left: 1px solid $default-border-color;
+        }
+      }
+
+      .left-text {
+        width: 350px;
+        padding-left: 10px;
+      }
+
+      .item-logo  {
+        float: left;
+
+        img {
+          height: 58px;
+          width: 58px;
+          border: 1px solid $default-border-color;
+        }
+      }
+
+      .item-description  {
+        float: left;
+        margin-left: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 260px;
+      }
+    }
+  }
+
+  .order-pagination {
+    margin: 20px 0;
+    text-align: right;
+  }
+}
+
+.order-detail {
+  .light-background {
+    border: 1px solid #ffe2ae;
+    background-color: #fff9ed;
+    box-shadow: 3px 3px 3px $default-background-color;
+  }
+
+  .font-14 {
+    font-size: 14px;
+  }
+
+  .detail-base {
+    margin: 10px 0;
+    padding: 10px;
+
+    hr {
+      border: 1px dashed $default-border-color;
+    }
+  }
+
+  .order-extra span {
+    margin-top: 5px;
+    @include inline-block(baseline);
+  }
+
+  .detail-main {
+    margin-bottom: 40px;
+    background: $default-background-color;
+    padding: 1px 10px;
+
+    .details {
+      margin-bottom: 10px;
+      background-color: white;
+      padding: 10px;
+    }
+
+    .orders-table {
+      width: 1010px;
+      margin-bottom: 0;
+    }
+
+    .items-table {
+      width: 808px;
+      margin-bottom: 0;
+
+      .left-text {
+        width: 250px;
+      }
+
+      .item-description {
+        width: 250px;
+      }
+    }
+  }
+}
+
+.modal-express {
+  .logistic-title {
+    width: 580px;
+    height: 20px;
+    padding: 10px;
+    background-color: $default-background-color;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+
+    .direction {
+      float: right;
+    }
+  }
+
+  .table {
+    border: 1px solid $default-border-color;
+    margin-top: 10px;
+    width: 600px;
+
+    &.active {
+      display: table;
+    }
+
+    th {
+      border: 1px solid $default-border-color;
+    }
+
+    td {
+      padding: 0px;
+      height: 30px;
+    }
+
+    tr.active {
+      color: $default-hover-color;
+    }
+  }
+}

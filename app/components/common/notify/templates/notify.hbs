@@ -1,0 +1,16 @@
+<div class="notify" style="display: none;">
+  {{#if template}}
+    {{{template}}}
+  {{else}}
+    {{#if iconClass}}
+    <div class="notify-icon"><i class="{{iconClass}}"></i></div>
+    {{/if}}
+    <div class="notify-text">
+      {{#if needClose}}
+      <a href="javascript:;" class='notify-close'>&times;</a>
+      {{/if}}
+      <div class="notify-title">{{title}}</div>
+      <div class="notify-content">{{content}}</div>
+    </div>
+  {{/if}}
+</div>

@@ -1,0 +1,71 @@
+@import "pokeball/variables";
+@import "pokeball/ext_variables";
+.panel {
+  line-height: normal;
+  margin-bottom: $panel-margin-bottom;
+  .panel-header {
+    height: $panel-header-height;
+    background-color: $panel-header-bg;
+    color: $panel-header-fg;
+    font-size: $panel-font-size;
+    padding: {
+      left: $panel-header-padding-h;
+      right: $panel-header-padding-h;
+    }
+    line-height: $panel-header-height;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    .panel-header-btn {
+      float: right;
+      margin-top: 5px;
+      margin-right: 16px;
+    }
+    .icon-xiangshangzhedie {
+      line-height: 42px;
+    }
+  }
+  .panel-mouth {
+    background-color: $panel-body-bg;
+  }
+  .panel-body {
+    padding: {
+      top: $panel-body-padding-v;
+      bottom: $panel-body-padding-v;
+      right: $panel-body-padding-h;
+      left: $panel-body-padding-h;
+    }
+    background-color: $panel-body-bg;
+  }
+  .panel-foot {
+    height: $panel-foot-height;
+    background-color: $panel-foot-bg;
+    color: $panel-foot-fg;
+    border-width: $panel-border-width 0px 0px 0px;
+    border-style: $panel-border-style;
+    border-color: $panel-border-color;
+  }
+  &.border-panel {
+    border-width: $panel-border-width;
+    border-style: $panel-border-style;
+    border-color: $panel-border-color;
+  }
+  &.aside-panel {
+    position: fixed;
+    bottom: -62px;
+    margin-bottom: 0;
+    .panel-header {
+      background-color: #ADB1B6;
+      color: white;
+      height: 60px;
+      line-height: 60px;
+      .icon-xiangshangzhedie {
+        line-height: 60px;
+      }
+    }
+    .panel-body {
+      display: none;
+    }
+  }
+}

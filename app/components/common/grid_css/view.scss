@@ -1,0 +1,91 @@
+/** *
+  * 简易的栅格系统
+  * @author sx-wangx@dtdream.com
+  */
+@import "pokeball/variables";
+@import "pokeball/ext_variables";
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    float: left;
+    padding: {
+      left: $grid-padding-h;
+      right: $grid-padding-h;
+    }
+    width: $i / 12 * 100%;
+  }
+  .col-offset-#{$i} {
+    margin-left: $i / 12 * 100%;
+  }
+}
+
+.row {
+  margin-left: (-1) * $grid-padding-h;
+  margin-right: (-1) * $grid-padding-h;
+  overflow: auto;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    clear: both;
+    display: table;
+  }
+}
+
+.mt-xs { margin-top: $grid-len-sx !important; }
+.mt-sm { margin-top: $grid-len-sm !important; }
+.mt { margin-top: $grid-len !important; }
+.mt-lg { margin-top: $grid-len-lg !important; }
+.mt-xl { margin-top: $grid-len-xl !important; }
+.mr-xs { margin-right: $grid-len-sx !important; }
+.mr-sm { margin-right: $grid-len-sm !important; }
+.mr { margin-right: $grid-len !important; }
+.mr-lg { margin-right: $grid-len-lg !important; }
+.mr-xl { margin-right: $grid-len-xl !important; }
+.mb-xs { margin-bottom: $grid-len-sx !important; }
+.mb-sm { margin-bottom: $grid-len-sm !important; }
+.mb { margin-bottom: $grid-len !important; }
+.mb-lg { margin-bottom: $grid-len-lg !important; }
+.mb-xl { margin-bottom: $grid-len-xl !important; }
+.ml-xs { margin-left: $grid-len-sx !important; }
+.ml-sm { margin-left: $grid-len-sm !important; }
+.ml { margin-left: $grid-len !important; }
+.ml-lg { margin-left: $grid-len-lg !important; }
+.ml-xl { margin-left: $grid-len-xl !important; }
+
+.pt-xs { padding-top: $grid-len-sx !important; }
+.pt-sm { padding-top: $grid-len-sm !important; }
+.pt { padding-top: $grid-len !important; }
+.pt-lg { padding-top: $grid-len-lg !important; }
+.pt-xl { padding-top: $grid-len-xl !important; }
+.pr-xs { padding-right: $grid-len-sx !important; }
+.pr-sm { padding-right: $grid-len-sm !important; }
+.pr { padding-right: $grid-len !important; }
+.pr-lg { padding-right: $grid-len-lg !important; }
+.pr-xl { padding-right: $grid-len-xl !important; }
+.pb-xs { padding-bottom: $grid-len-sx !important; }
+.pb-sm { padding-bottom: $grid-len-sm !important; }
+.pb { padding-bottom: $grid-len !important; }
+.pb-lg { padding-bottom: $grid-len-lg !important; }
+.pb-xl { padding-bottom: $grid-len-xl !important; }
+.pl-xs { padding-left: $grid-len-sx !important; }
+.pl-sm { padding-left: $grid-len-sm !important; }
+.pl { padding-left: $grid-len !important; }
+.pl-lg { padding-left: $grid-len-lg !important; }
+.pl-xl { padding-left: $grid-len-xl !important; }
+
+.mt0 { margin-top: 0px !important; }
+.mr0 { margin-right: 0px !important; }
+.mb0 { margin-bottom: 0px !important; }
+.ml0 { margin-left: 0px !important; }
+
+.pt0 { padding-top: 0px !important; }
+.pr0 { padding-right: 0px !important; }
+.pb0 { padding-bottom: 0px !important; }
+.pl0 { padding-left: 0px !important; }
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+

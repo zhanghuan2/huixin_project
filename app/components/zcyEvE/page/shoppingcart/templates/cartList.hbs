@@ -1,0 +1,31 @@
+{{#each this}}
+  <tr class="shoppingcart-goods-tr1" data-shop="{{this.shopId}}">
+    <td colspan="7">
+      <input type="checkbox" name="shop-checkbox"><b>{{@key}}</b>
+    </td>
+  </tr>
+  {{#each this.data}}
+    <tr class="shoppingcart-goods-tr2" data-shopid="{{../shopId}}" data-itemid="{{this.good.id}}">
+      <td><input type="checkbox" name="item-checkbox" data-shopid="{{../shopId}}" data-itemid="{{this.good.id}}" data-price="{{this.good.agreementPrice}}"></td>
+      <td>
+        <a href="/medical/detail?goodsId={{this.good.id}}&itemId={{this.good.goodsId}}&supplierCode={{this.good.supplierCode}}">
+          <img class="shoppingcart-goods-img" src="{{this.good.mainImage}}" style="display: inline;">
+          <span class="shoppingcart-goods-span">{{this.good.name}}</span>
+        </a>
+      </td>
+      <td>{{this.good.categoryName}}</td>
+      <td class="price" data-price="{{this.good.agreementPrice}}">{{this.good.agreementPrice}}</td>
+      <td>
+        <div class="input-amount" style="margin-top: -3px;">
+          <a href="javascript:void(0);" class="minus">-</a>
+          <input type="text" maxlength="6" class="count-number" data-amount="{{this.amount}}" value="{{this.amount}}" >
+          <a href="javascript:void(0);" class="plus">+</a>
+        </div>
+      </td>
+      <td class="item-subtotal">{{this.good.allprice}}</td>
+      <td>
+        <a name="deleteBtn">删除</a>
+      </td>
+    </tr>
+  {{/each}}
+{{/each}}

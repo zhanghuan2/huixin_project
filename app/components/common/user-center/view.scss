@@ -1,0 +1,167 @@
+@import "pokeball/variables";
+@import "pokeball/ext_variables";
+
+.user-center {
+  .asterisk {
+    color: #FF0000;;
+  }
+  .panelHeight{
+    height: 600px;
+  }
+  .info-block {
+    width: 100%;
+    margin: auto;
+  }
+
+  .info-group {
+    margin-bottom: 54px;
+
+    .info-title {
+      font-size: 12px;
+      color: #999999;
+      margin-bottom: 16px;
+
+    }
+    .info-body {
+      font-size: 26px;
+      color: #1c283e;
+      margin-bottom: 10px;
+    }
+    .info-footer {
+      font-size: 16px;
+      color: #1c283e;
+    }
+  }
+
+  .info-line {
+    margin-top: 20px;
+    .info-title {
+      text-align: right;
+      font-size: 12px;
+      color: #999999;
+    }
+    .info-content {
+      font-size: 12px;
+      color: #1c283e;
+      input, select {
+        max-width: 190px;
+      }
+    }
+  }
+
+  #genderDiv {
+    height: 30px;
+  }
+
+  //.checkButton {
+  //  margin-left: 15px;
+  //}
+  
+  #basicInfoEditBtn{
+    margin-top: 5px;
+  }
+  .modal {
+    .modal-header {
+      font-size: 14px;
+    }
+    .modal-body {
+      min-height: 150px;
+      div {
+        margin: 10px;
+      }
+    }
+  }
+
+  .tab {
+    ul.tab-navs {
+      margin-bottom: 0;
+      background-color: transparent;
+      li {
+        height: $tabs-height;
+        background-color: $tabs-bg;
+        padding: {
+          left: $tabs-padding-h;
+          right: $tabs-padding-h;
+        }
+        line-height: $tabs-height;
+        margin-right: $tabs-margin-h;
+        cursor: pointer;
+        color: $tabs-fg;
+        -moz-transition: linear 0.3s background-color;
+        -o-transition: linear 0.3s background-color;
+        -webkit-transition: linear 0.3s background-color;
+        transition: linear 0.3s background-color;
+        a {
+          background-color: transparent;
+          border: initial;
+          padding: initial;
+          color: inherit;
+          .tab-label {
+            margin-left: 10px;
+            background-color: transparent;
+            color: $tabs-fg-hover;
+          }
+        }
+
+        &.active {
+          background-color: $tabs-bg-active;
+          border-top-width: $tabs-border-width;
+          border-color: $tabs-border-color;
+          border-top-style: solid;
+          line-height: $tabs-height - 2 * $tabs-border-width;
+        }
+
+        &:hover {
+          background-color: $tabs-bg-active;
+          color: $tabs-fg-hover;
+        }
+
+        &.active:hover {
+          color: $tabs-fg;
+        }
+      }
+    }
+    > div {
+      background-color: $tabs-bg-active;
+    }
+  }
+  .status-able {
+    color: #2dc12d;
+  }
+  .status-pending {
+    color: #f79000;
+  }
+  .status-disable {
+    color: #666666;
+  }
+  .text-overflow {
+    overflow: hidden;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .input-account {
+    width: 150px;
+  }
+  .warnSpan {
+    line-height: 50px;
+    padding-left: 20px;
+    color: #FF2200;
+  }
+  .warnDiv {
+    border-color: #FF7900;
+    background-color: rgba(255, 121, 0, 0.16);
+  }
+  .widthAuto {
+    width: auto;
+  }
+  #idType{
+    height: 32px;
+  }
+  .head-btn{
+    float: right;
+    display: inline-block;
+  }
+}
+
+

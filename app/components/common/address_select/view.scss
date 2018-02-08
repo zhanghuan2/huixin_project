@@ -1,0 +1,16 @@
+@import "compass/css3/inline-block";
+@import "pokeball/theme";
+
+.address-edit-form {
+  .control-group {
+    label {
+      width: 6em;
+    }
+    .address-select-group {
+      @include inline-block(middle);
+      select {
+        width: 100px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="info-block changeEmailDiv">
+  <div class="row info-line">
+    <div class="col-2 info-title">
+      <label for="oldEmail">旧电子邮箱：</label>
+    </div>
+    <div class="col-3 info-content">
+      <label id="oldEmail">{{user.email}}</label>
+    </div>
+  </div>
+  <div class="row info-line">
+    <div class="col-2 info-title">
+      <label for="newEmail"><span class="asterisk">*&nbsp;</span>新电子邮箱：</label>
+    </div>
+    <div class="col-3 info-content">
+      <input type="text" id="newEmail" class="input-medium" placeholder="请输入" checker-type="email"/>
+    </div>
+  </div>
+  <div class="row info-line">
+    <div class="col-2 info-title">
+      &nbsp;
+    </div>
+    <div class="col-3 info-content">
+      <input type="button" id="emailModifyConfirm" class="btn btn-minor" value="修改"/>
+    </div>
+  </div>
+</div>

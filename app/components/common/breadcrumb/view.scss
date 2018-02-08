@@ -1,0 +1,45 @@
+@import "pokeball/variables";
+@import "pokeball/ext_variables";
+.breadcrumbs {
+    height:50px;
+
+  .breadcrumb {
+    padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+    padding-left: 0px; 
+    // margin-bottom: $breadcrumb-line-height;
+    list-style: none;
+    // background-color: $breadcrumb-bg;
+    //border-radius: $default-border-radius;
+    line-height:12px;
+    > li {
+      display: inline-block;
+      font-size: 12px;
+      a {
+        //color : #197AFF;
+        //color : #666666;
+      }
+      //a:hover{
+      //  color : #197AFF;
+      //}
+      span {
+        //color : #999999;
+        color : #bbbbbb;
+        text-align:left;
+      }
+      + li:before {
+        content: "#{$breadcrumb-separator}\00a0";
+        padding: 0 5px;
+        color: $breadcrumb-color;
+      }
+    }
+    li:last-child {
+      span{
+        color : #666666;
+        //font-weight: bold;
+      }
+    }
+    //> .active {
+    //  color: $breadcrumb-active-color;
+    //}
+  }
+}

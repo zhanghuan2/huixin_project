@@ -1,0 +1,120 @@
+<div class="list clearfix view-{{mode}}">
+{{#if this.hits}}
+    <div class="hide">{{json this.hits}}</div>
+    <ul class="view-mode-thumb">
+        {{#each this.hits}}
+            <span>
+            <li data-id="{{id}}" class="product
+                    {{#equals @root/searchType 1}}
+                        {{#mod @index 4}}last{{/mod}}
+                        {{else}}
+                        {{#mod @index 5}}last{{/mod}}
+                    {{/equals}}" style="{{#if marginRight}}margin-right: {{marginRight}}px;{{/if}}">
+                    <div class="product-image">
+                        <a href="/medical/detail?goodsId={{id}}&itemId={{goodsId}}&supplierCode={{supplierCode}}" target="_blank">
+                            <img class="lazy" data-original="" alt="loading..." width="208" height="208" src="{{cdnPath mainImage "260"}}"/>
+                        </a>
+                        <span class="tradeType-icon">
+                            <span class="{{#equals tradeType 1}}bid-icon{{else}}batch-icon{{/equals}}">{{#equals tradeType 1}}竞价{{else}}批量{{/equals}}</span>
+                            <span class="{{#equals tradeType 1}}tradeType-triangle-bid{{else}}tradeType-triangle-batch{{/equals}}"></span>
+                            {{!-- <span class="{{#equals tradeType 1}}bid-icon{{else}}batch-icon{{/equals}}">{{#equals tradeType 1}}竞价{{else}}批量{{/equals}}</span>
+                            <span class="{{#equals tradeType 1}}tradeType-triangle-bid{{else}}tradeType-triangle-batch{{/equals}}"></span> --}}
+                        </span>
+                        {{!-- <div class="availablePlan js-available-plan hide"><span></span></div> --}}
+                        <!--<div class="stockNum"><span></span></div> 如果没有库存，显示暂时无货 -->
+                        {{!-- <div class="regionSell hide">此商品仅在其他区划销售</div> --}}
+                    </div>
+                <p class="product-price js-price-type">
+                    <span class="currency"><span style="font-family: ArialMT;font-size: 14px;">&yen </span>{{formatPriceYZG agreementPrice}} </span>
+                    <span class="market-price">/ <span><span style="font-size: 12px;">&yen</span>{{formatPriceYZG marketPrice}}</span></span></p>
+                <p class="product-desc" title="{{{name}}}">
+                    <a href="/medical/detail?goodsId={{id}}&itemId={{goodsId}}&supplierCode={{supplierCode}}" target="_blank">{{{name}}}</a>
+                </p>
+                 
+                {{!-- <span class="product-cart js-product-cart hide">
+                    <button class="btn btn-zcy addToCart">
+                        <i class="font12 icon-zcy icon-gouwuche2"></i>
+                        加入购物车
+                    </button>
+                    <span class="font12 insert-compare js-compare-checkbox" data-itemid="{{id}}" id="{{id}}">
+                        <span class="content">对比</span>
+                    </span>
+                    <div class="tooltips hide addToCartForm">
+
+                    </div>
+                </span> --}}
+
+                <div class="sale-discountRate"><span>优惠率：{{discountRate}}%</span></div>
+                <div class="sale-quantity">
+                    <div class="product-ownerp">
+                        <span>已销售: {{#if saleQuantity}}{{saleQuantity}}{{else}}0{{/if}}</span>
+                    </div>
+                    {{!-- 暂时不做对比 --}}
+                    {{!-- <div class="insert-compare font-12" for="compare">
+                        <input type="checkbox" id="compare" class="compare-checkbox input-checkbox" data-itemid="{{id}}" value="{{id}}">对比
+                    </div> --}}
+                </div>         
+            </li>
+              </span> 
+        {{/each}}
+    </ul>
+    <table class="table table-fixed view-mode-list">
+        <thead>
+        <tr>
+            {{!-- <th width="3%" style="text-align: center;">对比</th> --}}
+            <th width="30%" style="padding-left:17px;">商品名称</th>
+            <th width="10%">商品类目</th>
+            <th width="10%">品牌</th>
+            <th width="10%">型号</th>
+            <th width="10%">市场价</th>
+            <th width="10%">协议单价</th>
+            <th width="10%">优惠率</th>
+            <th width="10%">累计成交量</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each this.hits}}
+            <tr>
+                {{!-- <td style="text-align: center;">
+                    <label class="font-12" for="compare">
+                        <input type="checkbox" id="compare" class="compare-checkbox input-checkbox" data-itemid="{{id}}" value="{{id}}">
+                    </label>
+                </td> --}}
+                <td >
+                    <div class="product-name" style="padding-right: 15px;">
+                        <span class="{{#equals tradeType 1}}bid{{else}}batch{{/equals}}">{{#equals tradeType 1}}竞价{{else}}批量{{/equals}}</span>
+                        <a title="{{{name}}}" href="/medical/detail?goodsId={{id}}&itemId={{goodsId}}&supplierCode={{supplierCode}}" target="_blank">{{{name}}}</a>
+                    </div>
+                </td>
+                <td title="{{categoryName}}" style="padding-right: 15px;">{{categoryName}}</td>
+                {{!-- 品牌名 --}}
+                <td title="{{brandName}}" style="padding-right: 15px;">{{{brandName}}}</td>
+                <td title="{{mode}}" style="padding-right: 15px;">{{mode}}</td>
+                <td><span class="price-style"> <span style="font-family: ArialMT; font-size:16px; margin-right:-3px;">&yen </span>{{formatPriceYZG marketPrice}}</span></td>
+                <td><span class="price-style"> <span style="font-family: ArialMT; font-size:16px; margin-right:-3px;">&yen </span>{{formatPriceYZG agreementPrice}}</span></td>
+                <td title="{{discountRate}}" style="padding-right: 15px;">{{discountRate}}%</td>
+                <td title="{{saleQuantity}}" style="width:62px;display:inline-block;border:0;margin-left:10px;text-align:center;">{{saleQuantity}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <div class="none-item-container bg">
+        <div class="main-content">
+            <img src="/assets/images/other-images/search-null.png" alt=""/>
+            <div class="announce-content">
+                <span class="title">对不起！没有找到您想要查询的商品。</span>
+                {{!-- <span class="detail">
+                    <p>您可尝试检查输入的文字是否有误，调整关键字重新搜索</p>
+                 </span> --}}
+            </div>
+        </div>
+    </div>
+{{/if}}
+</div>
+
+
+<div class="list-pagination">
+    <div class="js-pagination" data-size="{{#if pageSize ~}}{{pageSize}}{{else}}50{{~/if}}"
+         data-total="{{this.total}}"></div>
+</div>

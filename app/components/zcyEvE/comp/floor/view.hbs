@@ -1,0 +1,60 @@
+{{#component "js-comp"}}
+<div class="hide">{{json this}}</div>
+
+<div class="zcy-floor zcy-floor-batch clearfix">
+  <div class="hd">
+    <a class="title zcy-link" href="/medical/search?tradeType=2">批量采购</a>
+    <p>医疗商品单价 {{_DATA_.rulePrice}}-100 万元</p>
+    <a class="more zcy-link" href="/medical/search?tradeType=2">更多<i class="icon-zcy icon-nextstep"></i></a>
+    <div class="floor-img">
+      <img src="/assets/images/other-images/medical-batch.png">
+    </div>
+  </div>
+  <div class="bd">
+    <ul class="clearfix">
+      {{#each _DATA_.batchList}}
+        <li>
+          <a href="/medical/detail?goodsId={{id}}&itemId={{goodsId}}&supplierCode={{supplierCode}}">
+            {{#if mainImage}}
+              <img src="{{mainImage}}">
+            {{else}}
+              <img src="http://zcy-dev.img-cn-hangzhou.aliyuncs.com/system/error/image_not_found.001.jpeg">
+            {{/if}}
+            <p title="{{name}}">{{name}}</p>
+            <div class="price">¥{{agreementPrice}}{{unit}}</div>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="zcy-floor zcy-floor-bidding clearfix">
+  <div class="hd">
+    <a class="title zcy-link" href="/medical/search?tradeType=1">竞价采购</a>
+    <p>医疗商品单价 {{_DATA_.rulePrice}} 万以下</p>
+    <a class="more zcy-link" href="/medical/search?tradeType=1">更多<i class="icon-zcy icon-nextstep"></i></a>
+    <div class="floor-img">
+      <img src="/assets/images/other-images/medical-bidding.png">
+    </div>
+  </div>
+  <div class="bd">
+    <ul class="clearfix">
+      {{#each _DATA_.biddingList}}
+        <li>
+          <a href="/medical/detail?goodsId={{id}}&itemId={{goodsId}}&supplierCode={{supplierCode}}">
+            {{#if mainImage}}
+              <img src="{{mainImage}}">
+            {{else}}
+              <img src="http://zcy-dev.img-cn-hangzhou.aliyuncs.com/system/error/image_not_found.001.jpeg">
+            {{/if}}
+            <p title="{{name}}">{{name}}</p>
+            <div class="price">¥{{agreementPrice}}{{unit}}</div>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+  
+{{/component}}

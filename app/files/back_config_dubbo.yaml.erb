@@ -1,0 +1,8 @@
+---
+app: parana-admin
+services:
+  findStaffByName:
+    app: snz-user
+    type: DUBBO
+    uri: io.terminus.snz.user.service.AccountService:findStaffByName
+

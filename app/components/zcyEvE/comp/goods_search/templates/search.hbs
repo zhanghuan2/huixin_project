@@ -1,0 +1,76 @@
+<div class="wc-spin hide">
+    <div class="wc-spin-circle-bg"></div>
+    <div class="wc-spin-circle">
+        <div class="wc-spin-circle-mask"></div>
+    </div>
+    <div class="wc-spin-icon"><i class="icon-zcy icon-zcy-logo"></i></div>
+</div>
+<div class="hide">{{json this}}</div>
+
+<div class="goods-search-list">
+    <div class="category-list"></div>
+    <div class="filter  filter-activity">
+        <span style="display:inline-block;">排序</span>
+        <div class="filter-banner js-sort">
+            <button class="btn btn-info btn-short js-item-brands">
+                品牌
+                <i class="font12 icon-zcy icon-trianglebottom single"></i>
+            </button>
+            <button class="btn btn-info btn-small js-item-agreementPrice">
+                协议价
+                <i class="font12 icon-zcy icon-triangleup both"></i>
+                <i class="font12 icon-zcy icon-trianglebottom both"></i>
+            </button>
+        </div>
+        <span style="display:inline-block;margin-left:11px;">价格</span>
+        <form class="form filter-form  js-price-range" >
+                <input type="number" class="input-small p_f" name="p_f" value="{{p_f}}" placeholder="&yen 最低价">
+                <span id="forins"> - </span>
+                <input type="number" class="input-small p_t" name="p_t" value="{{p_t}}" placeholder="&yen 最高价">
+                <span class="js-price-filter price-hide-btn hide">
+                    <button type="submit" class="btn btn-info btn-small js-filter-submit"><span>确定</span></button>
+                    <span class="btn btn-info btn-small js-filter-clear">清空</span>
+                </span>
+        </form>
+        <span style="display:inline-block;margin-left:10px;">交易方式</span>
+        <select class="btn btn-info btn-small trans-select js-tradeType ">
+            <option value="0">全部</option>
+            <option value="1">竞价采购</option>
+            <option value="2">批量采购</option>
+        </select>
+
+        <div style="display:inline-block;float:right;">
+            <div class="total-result">
+                <span class="total" data-total="{{this.total}}">共<span></span>个结果</span>
+                <span class="custom-pagination">
+                    <i class="icon-zcy icon-prev custom-prev" style="cursor: pointer;"></i>
+                    <label class="active custom-pageNo"></label>/<label class="custom-total"></label>
+                    <i class="icon-zcy icon-next custom-next" style="cursor: pointer;"></i>
+                </span>
+            </div>
+            <div class="view-mode">
+                <span class="view-mode-type active" data-type="thumb">
+                    <i class="icon-zcy icon-leimupinleifenleileibie"></i>大图
+                </span>
+                <span class="view-mode-type" data-type="list">
+                    <i class="icon-zcy icon-list"></i>列表
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="goods-list"></div>
+</div>
+
+{{!-- <div class="component-select-product js-select-product hide">
+    <ul class="product-contrast-select">
+        <!--<li class="product-contrast-li inner-content"><strong class="font-16">商品对比</strong></li>-->
+        <li class="product-contrast-li select-function hide-mydefine pull-right">
+            <div class="btn btn-medium anon-contrast">开始对比</div>
+            <div class="clear-hide-oper">
+                <a href="javascript:void(0);" class="empty-compare-product">清空</a>
+                <a href="javascript:void(0);" class="close-compare-module">隐藏</a>
+            </div>
+        </li>
+    </ul>
+</div> --}}
+

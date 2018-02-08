@@ -1,0 +1,24 @@
+{{#component "medical-detail js-comp"}}
+<div class="hide">{{json}}</div>
+{{#inject "zcyEvE/comp/header"}}
+  {
+  "id": "-99",
+  "_categoryVisible": false
+  }
+{{/inject}}
+<div class="eevee-clu-line-index0 eevee-grids">
+  <div class="eevee-col-row">
+    <div class="eevee-col-box" style="width: 1200px;margin-top: 20px;">
+      {{inject "zcyEvE/comp/item_detail" pageId="healthHallGoodsDetail"}}
+      {{!-- {{inject this.path param=this.data _DATA_=../../_DATA_}} --}}
+    </div>
+    <div class="eevee-col-box" style="width: 1200px; margin-top: 20px">
+      {{inject "zcyEvE/comp/spu_tab"}}
+      {{!-- {{inject this.path param=this.data data=../../_DATA_}} --}}
+    </div>
+    <div class="eevee-col-box" style="">
+      {{!-- {{inject this.path param=this.data data=../../_DATA_}} --}}
+    </div>
+  </div>
+</div>
+{{/component}}

@@ -1,0 +1,49 @@
+.time-picker {
+  display: inline-block;
+  .time-input {
+    width: 120px !important;
+    background-color: #fff !important;
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNDk3OTQzMjMzODA5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjExMjMyIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik02ODggNTkybC0xOTIgMGMtOS42IDAtMTYtNi40LTE2LTE2bDAgMGMwLTkuNiA2LjQtMTYgMTYtMTZsMTkyIDBjOS42IDAgMTYgNi40IDE2IDE2bDAgMEM3MDQgNTg1LjYgNjk3LjYgNTkyIDY4OCA1OTJ6IiBwLWlkPSIxMTIzMyIgZmlsbD0iIzhhOGE4YSI+PC9wYXRoPjxwYXRoIGQ9Ik01MTIgMzUybDAgMjI0YzAgOS42LTYuNCAxNi0xNiAxNmwwIDBjLTkuNiAwLTE2LTYuNC0xNi0xNmwwLTIyNGMwLTkuNiA2LjQtMTYgMTYtMTZsMCAwQzUwNS42IDMzNiA1MTIgMzQ1LjYgNTEyIDM1MnoiIHAtaWQ9IjExMjM0IiBmaWxsPSIjOGE4YThhIj48L3BhdGg+PHBhdGggZD0iTTUyOCA4ODBDMzQyLjQgODgwIDE5MiA3MjkuNiAxOTIgNTQ0YzAtMTg1LjYgMTUwLjQtMzM2IDMzNi0zMzZTODY0IDM1OC40IDg2NCA1NDRDODY0IDcyOS42IDcxMy42IDg4MCA1MjggODgwek01MjggMjQwQzM2MS42IDI0MCAyMjQgMzc3LjYgMjI0IDU0NHMxMzcuNiAzMDQgMzA0IDMwNFM4MzIgNzEwLjQgODMyIDU0NCA2OTcuNiAyNDAgNTI4IDI0MHoiIHAtaWQ9IjExMjM1IiBmaWxsPSIjOGE4YThhIj48L3BhdGg+PC9zdmc+") !important;
+    padding-right: 25px !important;
+    background-repeat: no-repeat !important;
+    background-position: 90px center !important;
+    cursor: pointer;
+    &:disabled {
+      background-color: #f7f7f7 !important;
+    }
+  }
+  .time-input-div {
+    display: none;
+    position: absolute;
+    width: 120px;
+    height: 125px;
+    background-color: #fff;
+    .div-block {
+      display: inline-block;
+      position: relative;
+      width: 40px;
+      height: 125px;
+      text-indent: 13px;
+      border: 1px solid #ccc;
+      border-left: none;
+      &:first-child {
+        border-left: 1px solid #ccc;
+      }
+      overflow: hidden;
+      >ul {
+        width: 54px;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        li {
+          cursor: pointer;
+          &:hover,
+          &.choosed {
+            color: #fff;
+            background-color: #197aff;
+          }
+        }
+      }
+    }
+  }
+}

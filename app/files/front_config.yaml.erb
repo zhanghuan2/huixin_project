@@ -1,0 +1,205 @@
+app: parana-admin
+
+components:
+  "common/header/todo":
+    category: "ADMIN"
+    name: "头部菜单-待办列表"
+    service: "queryBacklog"
+
+  "common/header/message":
+    category: "ADMIN"
+    name: "头部菜单-消息列表"
+    service: "queryMessage"
+
+  "common/sidebar":
+    category: "ADMIN"
+    name: "菜单列表"
+    service: "getMenus"##?
+    services:
+      _PORTAL_: "getPortal"
+
+  "zcyEvE/comp/health_ceiling":
+    category: "OFFICIAL"
+    name: "商品详情，图片、价格、供应商"
+    service: ""
+    services:
+      _ENV_HREF_: "getEnvHref"
+
+  "zcyEvE/comp/address_select_down":
+    category: "ADMIN"
+    name: "商品详情页获取选过的区域"
+    service: "findSimpleAddr"
+
+  "zcyEvE/comp/goods_detail": # component path
+    category: "OFFICIAL" # category: OFFICIAL, TEMPLATE, SHOP, ITEM, ITEM_TEMPLATE
+    name: "eevee商品详情主信息"
+    service: "findForView"
+    services:
+      _PURCHASE_: "getOrderItemPurchaserStat"
+      _ROLES_: "getRoles"
+      _STATISTICS_: "getEvaluateItemStatistics"
+      _COMPARE_PRICE_: "getCompareList"
+      _SPU_INFO_: "getSpuItemComparativeInfo"
+
+  "zcyEvE/comp/item_detail":
+    category: "OFFICIAL"
+    name: "商品详情，图片、价格、供应商"
+    service: "findForView"
+    services:
+      _DATA1_: "queryGoodsDetailById"
+      _DATA2_: "getMoreItemEvaluateDetail"
+      _DATA3_: "getGoodSupplier"
+      _ENV_HREF_: "getEnvHref"
+      _ELEMENT_: "getElements"
+
+  "zcyEvE/comp/spu_tab":
+    category: "OFFICIAL"
+    name: "商品详情（详情页、评价等）"
+    service: findItemDetailInfoByItemId
+    services:
+      _DESC_DATA_: getMoreItemEvaluateDetail # 详情，规格参数，评价
+      _DATA1_: findByAgrGoodsId # 配件
+      _DATA2_: queryGoosServerInfoByGoodsId # 服务
+      _DATA3_: queryAgreeDealerInfos # 供货商
+      _DATA4_: queryCompareGoodsInfoListByGoodsId # 比较
+
+  "zcyEvE/comp/headerSearch": # component path
+    category: "OFFICIAL" # category: OFFICIAL, TEMPLATE, SHOP, ITEM, ITEM_TEMPLATE
+    name: "制造馆顶部搜索框"
+    services:
+      _ENV_HREF_: "getEnvHref"
+
+  "zcyEvE/comp/items_search":
+    category: "OFFICIAL"
+    name: "商品主搜"
+    service: "searchWithAggs"
+    services:
+      _ENV_HREF_: "getEnvHref"
+
+  "zcyEvE/comp/detail":
+    category: "OFFICIAL"
+    name: "商品对比"
+    service: itemPropertyCompare
+
+  "zcyEvE/comp/nav_category":
+    category: "OFFICIAL"
+    name: "前台类目完全展示"
+    service: "findChildrenOf"
+
+  "zcyEvE/comp/new_ihref":
+    category: "COMMON"
+    name: "特许商品馆链接"
+    service: "getAppsByDim"
+
+  "zcyEvE/comp/service_guarantee":
+    category: "OFFICIAL"
+    name: "服务保障"
+    service: "getUserShortCutList"
+    services:
+      _ENV_HREF_: "getEnvHref"
+
+  "zcyEvE/comp/shop_cart": # component path
+    category: "OFFICIAL" # category: OFFICIAL, TEMPLATE, SHOP, ITEM, ITEM_TEMPLATE
+    name: "制造馆购物车"
+    services:
+      _ENV_HREF_: "getEnvHref"
+
+  "zcyEvE/comp/shopping_cart":
+    category: "ADMIN"
+    name: "购物车"
+    services:
+      _NETSUPER_CART_: "getPermanentCart"
+      _AGREE_CART_: "getAgreeMentCart"
+      _VACCINE_CART_: "getVaccineCart"
+      _ELEMENT_: "getElements"
+      _ROLES_: "getRoles"
+      _ENV_HREF_: "getEnvHref"
+
+  "zcyEvE/page/shoppingcart":
+    category: "ADMIN"
+    name: "购物车"
+    services:
+      _ENV_HREF_: "getEnvHref"
+      _ELEMENT_: "getElements"
+
+  "zcyEvE/comp/supplierMsg": # component path
+    category: "OFFICIAL" # category: OFFICIAL, TEMPLATE, SHOP, ITEM, ITEM_TEMPLATE
+    name: "头部供应商信息"
+    service: "getRecommendedSupplier" # app:serviceKey
+    services:
+      _ENV_HREF_: "getEnvHref"
+      _ROLES_: "getRoles"
+
+  "zcy_comps/ceilingTemp":
+    category: "OFFICIAL"
+    name: "新装修吊顶"
+    service: "getAppsByDim"
+    services:
+      _ENV_HREF_: "getEnvHref"
+      _ROLES_: "getRoles"
+
+  "zcyEvE/page/login":
+    category: "OFFICIAL"
+    name: "登录跳转页"
+    services:
+      _ENV_HREF_: "getEnvHref"
+  "zcyEvE/page/index":
+    category: "OFFICIAL"
+    name: "首页"
+    services:
+      _ENV_HREF_: "getEnvHref"
+  "zcyEvE/comp/header":
+    category: "OFFICIAL"
+    name: "首页类目加载"
+    service: "loadFrontCategory"
+    services:
+      # _ELEMENT_: "getElements"
+      _ENV_HREF_: "getEnvHref"
+      _ROLES_: "getRoles"
+  "zcyEvE/comp/floor":
+    category: "OFFICIAL"
+    name: "大厅批量采购、竞价采购"
+    service: "loadGoodIndex"
+
+
+mappings:
+  - pattern: "vienna/api/contract/district/getDistrictTreeWithPrivilegeInJson"
+    desc: "获取行政区划树"
+    methods:
+      - GET
+    service: "getDistrictTreeWithPrivilegeInJson"
+
+  - pattern: "api/district/children"
+    methods:
+      - GET
+    service: "getDistrictTreeJson"
+    desc: "获取某个行政区划下的子节点"
+
+  - pattern: "api/district/getDistrictTree"
+    desc: "获取行政区划树"
+    methods:
+      - GET
+    service: "getDistrictTreeInJson"
+
+  - pattern: "api/credit/evaluate/getMoreItemEvaluateDetail"
+    methods:
+      - GET
+    service: "getMoreItemEvaluateDetail"
+
+  - pattern: "api/zcy/queryAgreeDealerInfos"
+    methods:
+      - GET
+    service: "queryAgreeDealerInfos"
+    desc: "详情页供货商分页"
+
+  - pattern: "api/address/{id}/children"
+    methods:
+      - GET
+    service: "childAddressOf"
+    desc: "获取下级地址"
+
+hrefs: # 可选，所有出现在这个 hash 里的值都会以  为 key 注入渲染上下文
+  photohref: <%= photohref %>
+  main: <%= main %>
+  login: <%= login %>
+  mainHref: <%= mainHref %>

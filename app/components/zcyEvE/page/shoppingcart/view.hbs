@@ -1,0 +1,97 @@
+{{#component "medical-shoppingcart js-comp"}}
+<div class="hide">{{json this}}</div>
+<div class="hide envHref" data-href="{{_ENV_HREF_.health}}">{{_ENV_HREF_.health}}</div>
+<div class="eevee-clu-line-0 eevee-grids">
+  {{#inject "zcyEvE/comp/header"}}
+    {
+    "id": "-99",
+    "_categoryVisible": false
+    }
+  {{/inject}}
+</div>
+<div class="eevee-clu-line-0 eevee-grids">
+  <div class="eevee-col-row">
+    <div class="js-search-list">
+      <div class="wc-spin">
+        <div class="wc-spin-circle-bg"></div>
+        <div class="wc-spin-circle">
+          <div class="wc-spin-circle-mask"></div>
+        </div>
+        <div class="wc-spin-icon"><i class="icon-zcy icon-zcy-logo"></i></div>
+      </div>
+    </div>
+    <div class="eevee-col-box shoppingCart-withItem hide" style="width: 1200px;">
+      <div class="page-info mt-xl">
+        <div class="col-2">
+          <i class="icon-zcy icon-prompt"></i><br>
+          <h3>竞价采购说明</h3>
+        </div>
+        <div class="col-10 rule-text">
+          <ul>
+            <li>协议单价低于7万元以下的商品采取竞价采购交易方式。</li>
+            <li>竞价采购，选择单一品牌型号或者多个不同品牌型号商品发起竞价，在规定竞价起止时间内（由采购人设置）符合要求的供应商或供货商都可以报价响应，系统按照最低报价规则自动推荐成交供应商。</li>
+            <li>选择单一品牌商品，发起单品牌竞价；选择同一种商品类目且多个不同品牌商品，发起多品牌竞价，品牌数量最少3个，最多不超过10个。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="page-header">
+        <table class="table" width="100%">
+          <thead>
+            <tr>
+              <th width="6%"><input type="checkbox" name="batchSelect"> 全选</th>
+              <th width="40%">商品信息</th>
+              <th width="10%">商品类目</th>
+              <th width="12%">单价(元)</th>
+              <th width="12%">数量</th>
+              <th width="15%">协议总价(元)</th>
+              <th width="5%">操作</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div class="page-body">
+        <table class="shoppingcart-table" width="100%">
+          <thead>
+            <tr width="100%">
+              <th width="6%"></th>
+              <th width="40%"></th>
+              <th width="10%"></th>
+              <th width="12%"></th>
+              <th width="12%"></th>
+              <th width="15%"></th>
+              <th width="5%"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="shoppingcart-goods-tr1" data-shop="1">
+              <td colspan="7" style="text-align: center;">
+                <img src="http://zcy-cdn.oss-cn-shanghai.aliyuncs.com/ZCY-comps-imgs/commonIMGs/loading.gif"/>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="page-footer" style="height: 120px">
+        {{#equals _ELEMENT_.healthShoppingCart true}}
+          <div class="pull-right mt-xl mb-xl" >
+            <span class="ruleError"></span>
+            <button class="btn btn-shoppingCart" id="shoppingCart" disabled>生成竞价单</button>
+          </div>
+        {{/equals}}
+      </div>
+
+    </div>
+    <div class="eevee-col-box shoppingCart-none" style="display:none; width: 1200px;">
+      <div class="text-center">
+        <i class="icon-zcy icon-gouwuche1"></i><br>
+        <p>购物车空空如也~</p>
+        <a class="btn btn-shoppingCart-none" href="/medical/index">去逛逛</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{/component}}

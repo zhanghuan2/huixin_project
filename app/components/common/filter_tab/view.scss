@@ -1,0 +1,19 @@
+@import "pokeball/variables";
+@import "pokeball/ext_variables";
+
+.tab {
+  .tab-label {
+    width: auto;
+    margin-left: 10px;
+    background-color: transparent;
+    color: $tabs-fg-hover;
+  }
+  .tab-btn {
+    float: right;
+    margin-right: 18px;
+    margin-top: -38px;
+  }
+  > div {
+    background-color: $tabs-bg-active;
+  }
+}

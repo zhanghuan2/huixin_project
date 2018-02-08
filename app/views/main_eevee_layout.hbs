@@ -1,0 +1,12 @@
+{{#partial "title"}}{{{block "realTitle"}}}{{/partial}}
+{{#partial "body"}}
+  <div class="root-container">
+    {{inject "zcyEvE/comp/health_ceiling"}}
+    {{{block "mainBody"}}}
+    {{inject "comps/page_bottom"}}
+    {{inject "comps/footer"}}
+  </div>
+{{/partial}}
+{{#partial "tool"}}
+{{/partial}}
+{{> layout}}

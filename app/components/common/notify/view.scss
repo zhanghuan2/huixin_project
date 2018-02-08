@@ -1,0 +1,56 @@
+.notify-container {
+  position: fixed;
+  right: 30px;
+  bottom: 60px;
+  z-index: 10086;
+
+  .notify {
+    width: 345px;
+    border: 1px solid #d8d8d8;
+    background-color: white;
+    box-shadow: 1px 1px 3px #eee;
+    padding: 20px;
+    overflow: hidden;
+    margin-top: 15px;
+    .notify-icon {
+      float: left;
+      width: 36px;
+      margin-right: 20px;
+      .icon-zcy {
+        font-size: 36px;
+        width: 36px;
+        line-height: 56px;
+      }
+    }
+    .notify-close {
+      font-size: 20px;
+      line-height: 16px;
+      float: right;
+      color:#d8d8d8;
+      &:hover {
+        color:#c0c0c0;
+      }
+      transition:         color 0.2s;
+      -moz-transition:    color 0.2s;
+      -webkit-transition: color 0.2s;
+      -o-transition:      color 0.2s;
+    }
+    .notify-text {
+      float:left;
+      width: 245px;
+      .notify-title {
+        height: 20px;
+        line-height: 20px;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+      .notify-content {
+        color: #999;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

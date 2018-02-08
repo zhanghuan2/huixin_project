@@ -1,0 +1,54 @@
+@import "./variables.scss";
+
+input[type=checkbox][indeterminate="true"]:after, input[type=checkbox]:checked:after, input[type=checkbox][checked="checked"]:after {
+  color: $color-primary;
+}
+input[type=checkbox]:hover:after, input[type=checkbox]:hover:before, input[type=checkbox][indeterminate="true"]:after, input[type=checkbox][indeterminate="true"]:before, input[type=checkbox]:checked:after, input[type=checkbox]:checked:before, input[type=checkbox][checked="checked"]:after, input[type=checkbox][checked="checked"]:before {
+  border-color: $color-primary;
+}
+input[type=checkbox].input-checkbox[indeterminate="true"]:after, input[type=checkbox].input-checkbox:checked:after, input[type=checkbox].input-checkbox[checked="checked"]:after {
+  color: $color-primary;
+}
+input[type=checkbox].input-checkbox:hover:after, input[type=checkbox].input-checkbox:hover:before, input[type=checkbox].input-checkbox[indeterminate="true"]:after, input[type=checkbox].input-checkbox[indeterminate="true"]:before, input[type=checkbox].input-checkbox:checked:after, input[type=checkbox].input-checkbox:checked:before, input[type=checkbox].input-checkbox[checked="checked"]:after, input[type=checkbox].input-checkbox[checked="checked"]:before {
+  border-color: $color-primary;
+}
+input[type=checkbox].input-checkbox {
+  height: 13px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.component-goods-supplierSearch-list .goods-search-list .nav-group dl .list-more dd .input-checkbox, .component-goods-supplierSearch-list .nav-bar .nav-group dl .list-more dd .input-checkbox {
+  margin-right:3px;
+}
+
+.btn .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active {
+  color:$color-primary;
+  border-color:$color-primary;
+  background: #fff;
+}
+
+.btn, .btn-primary, .btn-group .btn.active, .btn:hover, .btn:visited  {
+  border-color: $color-primary;
+  background-color: $color-primary;
+}
+
+.zcy-link {
+  transition: linear 0.3s all;
+}
+.zcy-link:hover {
+  opacity: 0.8;
+}
+
+// .btn-primary:hover, .btn:hover, .btn-group .btn.active:hover, .btn-primary:focus, .btn:focus, .btn-group .btn.active:focus, .btn-primary:active, .btn:active, .btn-group .btn.active:active, .btn-primary.active, .active.btn, .btn-group .active.btn {
+//   background-color: $color-primary;
+// }
+
+//  .btn{
+//   background-color: $color-primary;
+// }
+
+
+
+

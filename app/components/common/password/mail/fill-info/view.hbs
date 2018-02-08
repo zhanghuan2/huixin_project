@@ -1,0 +1,22 @@
+{{#component "mailSetNewPaswd forget-password  js-comp"}}
+  <div class="panel pl pr pt mb0 pb0">
+    <div class="row" id="forgetPasswordProcessBar"></div>
+  </div>
+  <div class="panel center mt0">
+    <div class="control-group ">
+      <label for="email"><span class="required">*</span>邮箱</label>
+      <input id="email" type="email" checker-type="email" required>
+    </div>
+    <br>
+    <p class="needknow">
+      没有邮箱？
+      <a href="/password-find/phone/fill-info">
+        试试手机找回密码方式
+      </a>
+    </p>
+    <br>
+    <p class="needknow">
+      <button id="commit" class="btn btn-primary btn-large" name="commit" disabled>发送邮件</button>
+    </p>
+  </div>
+{{/component}}

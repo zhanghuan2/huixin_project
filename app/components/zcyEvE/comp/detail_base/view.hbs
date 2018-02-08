@@ -1,0 +1,146 @@
+{{#component "item-detail js-comp"}}
+<input type="hidden" id="YZHD_ITEMID" value="{{itemId}}">
+<div class="item-detail-left">
+  <div class="item-detail-form">
+    <form class="form form-horizontal detail-form clearfix" onkeydown="if(event.keyCode==13){return false;}">
+      <div class="left">
+        <div class="image-manage" data-item-detail="{{_DATA_.itemDetail.id}}">
+          <a class="main-image js-main-image-container zoom" href="{{_DATA_.item.mainImage}}">
+            <img alt="{{_DATA_.item.name}}" class="js-main-image" src="{{_DATA_.item.mainImage}}{{!-- {{cdnPath _DATA_.item.mainImage "360"}} --}}" width="350" height="350"/>
+          </a>
+          <ul class="images clearfix">
+            <li class="selected">
+              <div class="sharp"></div>
+              <img id="itemMainImage" class="thumbnail" src="{{_DATA_.item.mainImage}}{{!-- {{cdnPath _DATA_.item.mainImage "360"}} --}}" width="54" height="54" alt="{{_DATA_.item.name}}" data-src="{{_DATA_.item.mainImage}}"/>
+            </li>
+            {{#each _DATA_.imageInfos}}
+              <li>
+                <div class="sharp"></div>
+                <img class="thumbnail" src="{{url}}{{!-- {{cdnPath url "100"}} --}}" width="54" height="54" alt="{{#if name}}{{name}}{{else}}{{_DATA_.item.name}}{{/if}}" data-src="{{url}}"/>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <div class="item-title" data-id="{{itemId}}" data-status="{{_DATA_.item.status}}">
+          <h1 title="{{_DATA_.item.name}}" id="js-item-name" data-name="{{_DATA_.item.name}}">{{_DATA_.item.name}}</h1>
+        </div>
+        <div class="item-info">
+          <div class="control-group">
+            <label class="control-label">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</label>
+            <div class="controls">
+              <span class="new-price">{{_CURRENCY_}}<b id="js-item-price" class="currency"
+                {{#equals _DATA_.item.lowPrice _DATA_.item.highPrice}}
+                  data-range="{{formatPrice _DATA_.item.lowPrice}}"
+                {{else}}
+                  data-range="{{formatPrice _DATA_.item.lowPrice}}-{{formatPrice _DATA_.item.highPrice}}"
+                {{/equals}}>
+                {{#equals _DATA_.item.lowPrice _DATA_.item.highPrice}}
+                  {{formatPrice _DATA_.item.lowPrice}}
+                {{else}}
+                  {{formatPrice _DATA_.item.lowPrice}}-{{formatPrice _DATA_.item.highPrice}}
+                {{/equals}}</b></span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">原&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价：</label>
+            <div class="controls">
+              <span class="new-price"><del id="js-item-origin-price" data-range="{{_CURRENCY_}}{{formatPrice _DATA_.item.lowOriginPrice}}-{{_CURRENCY_}}{{formatPrice _DATA_.item.highOriginPrice}}" data-currency="{{_CURRENCY_}}">{{_CURRENCY_}}{{formatPrice _DATA_.item.lowOriginPrice}}-{{formatPrice _DATA_.item.highOriginPrice}}</del></span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">{{i18n "Total sold " bundle="all_mix"}}：</label>
+            <div class="controls">
+              <span class="total-sold">{{#if _DATA_.item.saleQuantity}}{{_DATA_.item.saleQuantity}}{{else}}0{{/if}}</span>
+            </div>
+          </div>
+          <div class="control-group item-stock">
+            <label class="control-label">库&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存：</label>
+            <div class="controls">
+              <span class="total-stock" data-stock="{{_DATA_.item.stockQuantity}}">{{i18n "Total" bundle="all_mix"}}<span class="item-quantity" id="js-item-stock" data-stock="{{_DATA_.item.stockQuantity}}">{{_DATA_.item.stockQuantity}}</span>{{i18n "item " bundle="all_mix"}}</span>
+            </div>
+          </div>
+          <div class="control-group activity">
+
+          </div>
+          <div class="control-group address-group" data-item="{{itemId}}" data-levels="3">
+            <label class="control-label" style="margin-top: 0;">运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：</label>
+            <div class="address-select-label">
+              <div class="address-select-wrap">
+                <label>{{i18n "Deliver to " bundle="all_mix"}}</label>
+                <div class="address-select">
+                  <div class="address-text" data-address-id="0">北京市 北京市 东城区</div>
+                  <div class="address-area">
+                    <a class="address-close" href="javascript:;">×</a>
+                    <ul class="address-tab clearfix">
+                      <li data-level="1" class="active" data-default="{{provinceId}}"><a href="javascript:;">{{i18n "Province" bundle="all_mix"}}/{{i18n "Municipalities" bundle="all_mix"}}</a></li>
+                      <li data-level="2" data-default="{{cityId}}"><a href="javascript:;">{{i18n "City" bundle="all_mix"}}</a></li>
+                      <li data-level="3" data-default="{{regionId}}"><a href="javascript:;">{{i18n "Area" bundle="all_mix"}}</a></li>
+                    </ul>
+                    <ul class="address-content clearfix" data-level="1"></ul>
+                    <ul class="address-content clearfix" data-level="2"></ul>
+                    <ul class="address-content clearfix" data-level="3"></ul>
+                  </div>
+                  <span class="caret"></span>
+                </div>
+                <label for="">{{i18n "RM" bundle="all_mix"}}<span class="item-post-fee">0.00</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{#equals _DATA_.item.status "1"}}
+        <div class="item-skus">
+          <a href="javascript:void(0);" class="close-warning" style="display:none;">×</a>
+          <ul id="choose" data-skus="{{json _DATA_.skus}}" data-attrs="{{json _DATA_.groupedSkuAttrs}}">
+            {{#each _DATA_.groupedSkuAttrs}}
+              <li class="sku-choose js-attr-sort" data-index="{{@index}}">
+                <div class="control-group">
+                  <label class="dt sku-items-label" for="input-name">{{attrKey}}：</label>
+                  <div class="smdd sku-items">
+                    <div class="wrap-input">
+                      {{#each skuAttributes}}
+                        <a class="{{#if image}}hasImage{{/if}} js-sku-attr sku-attr" data-show="{{showImage}}" {{#if image}}data-src="{{image}}"{{/if}} data-id="{{id}}" href="javascript:;" title="{{attrVal}}" data-attr="{{attrKey}}:{{attrVal}}" data-key="{{attrKey}}">{{#if image}}<img src="{{image}}{{!-- {{cdnPath image "60"}} --}}" alt="{{attrVal}}">{{else}}{{attrVal}}{{/if}}</a>
+                      {{/each}}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {{/each}}
+            <li id="choose-amount">
+              <div class="control-group">
+                <label class="dt sku-items-label" for="input-name">{{i18n "Purchase quantity " bundle="all_mix"}}：</label>
+                <div class="smdd controls">
+                  <div class="input-amount js-item-stock-quantity" data-max="{{_DATA_.item.stockQuantity}}">
+                    <a href="javascript:void(0);" class="disabled minus">-</a>
+                    <input type="number" value="1" class="count-number" id="item-quantity" data-old="1" data-max-stock="{{_DATA_.item.stockQuantity}}">
+                    <a href="javascript:void(0);" class="plus">+</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li id="choose-btns">
+              <button class="btn btn-medium btn-danger js-buy-now" type="button">{{i18n "Buy now " bundle="all_mix"}}</button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-medium btn-success js-add-cart" type="button">{{i18n "Add to cart " bundle="all_mix"}}</button>
+              <span class="warning-words required" style="display:none;">{{i18n "Please tick the product info you want " bundle="all_mix"}}</span>
+              <span class="stock-empty hide required">{{i18n "Insufficient product in inventory " bundle="all_mix"}}，{{i18n "Please choose other item" bundle="all_mix"}}</span>
+            </li>
+          </ul>
+        </div>
+        {{else}}
+        <div class="item-not-on">
+          <div class="status-desc">
+            <p>
+              {{#equals _DATA_.item.status "0"}}亲，你来早了，{{i18n "This item has not been listed " bundle="all_mix"}}{{/equals}}
+              {{#equals _DATA_.item.status "-1"}}亲，你来晚了，{{i18n "This item has been removed from list " bundle="all_mix"}}{{/equals}}
+              {{#equals _DATA_.item.status "-2"}}亲，你来晚了，{{i18n "This item is suspend" bundle="all_mix"}}{{/equals}}
+              {{#equals _DATA_.item.status "-3"}}亲，你来晚了，{{i18n "This item has been deleted " bundle="all_mix"}}{{/equals}}
+            </p>
+          </div>
+        </div>
+        {{/equals}}
+      </div>
+    </form>
+  </div>
+</div>
+{{/component}}

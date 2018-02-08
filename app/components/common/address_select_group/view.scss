@@ -1,0 +1,136 @@
+@import "compass/css3/inline-block";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/css3/images";
+@import "pokeball/theme";
+.address-group{
+  width: 100%;
+  .address-select-wrap {
+    @include inline-block(none);
+    label{
+      margin-left: 30px;
+    }
+  }
+  .address-select-label {
+    margin-right: 35px;
+    @include inline-block(none);
+    .address-control-area {
+      text-align: left;
+    }
+    .label-tips {
+      color: $darkgray;
+      margin: 8px 0 10px;
+    }
+  }
+  .address-select-wrap {
+    width: 340px;
+    height: 40px;
+    line-height: 40px;
+    background-color: $color-danger;
+    @include inline-block(middle);
+    @include border-radius(2px);
+    label {
+      font-weight: bold;
+      color: #fff;
+      margin-right: 5px;
+    }
+  }
+  .address-select{
+    background-color: #fff;
+    border: $color-text-assist solid 1px;
+    width: 170px;
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
+    cursor: default;
+    position: relative;
+    margin-top: -3px;
+    zoom: 1;
+    @include inline-block(middle);
+    @include border-radius(3px);
+    .tip {
+      left: 0 !important;
+      top: 33px;
+      width: 245px;
+    }
+    .address-text {
+      height: 28px;
+      padding: 0 10px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+    .address-area {
+      width: 320px;
+      padding: 15px;
+      background-color: #fff;
+      position: absolute;
+      z-index: 999;
+      zoom: 1;
+      border: $color-border solid 1px;
+      @include box-shadow(rgba(0, 0, 0, .3) 0 0 5px);
+      display: none;
+      .address-close {
+        color: #666;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+      }
+      .address-tab {
+        border-bottom: $color-danger solid 1px;
+        li {
+          float: left;
+          height: 24px;
+          line-height: 24px;
+          margin-right: 5px;
+          list-style-type: none;
+          border: $color-border-dark solid 1px;
+          border-bottom: none;
+          &.active {
+            height: 25px;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border-color: $color-danger;
+          }
+          a {
+            color: #656565;
+            padding: 0 10px;
+            @include inline-block(none);
+          }
+        }
+      }
+      .address-content {
+        margin-top: 10px;
+        display: none;
+        li {
+          float: left;
+          width: 20%;
+          height: 2em;
+          line-height: 2em;
+          overflow: hidden;
+          list-style-type: none;
+          &.active {
+            a {
+              background-color: $color-danger;
+              color: #fff;
+            }
+          }
+          a {
+            color: #666;
+            padding: 0 5px;
+            @include inline-block(none);
+          }
+        }
+      }
+    }
+    .caret {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -2px;
+      z-index: 1;
+    }
+  }
+}
+
